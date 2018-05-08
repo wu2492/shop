@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
 <link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="${contextPath}${contextPath}/assets/js/jquery.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 </head>
 
 <body>
@@ -29,18 +33,19 @@
  </div><!--hrader/-->
  <div class="mainCont">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <div class="loginBox">
    <div class="loginLeft">
-    <img src="images/login.jpg" width="567" height="348" />
+    <img src="${contextPath}/assets/images/login.jpg" width="567" height="348" />
    </div><!--loginLeft/-->
    <div class="loginRight">
+   
     <form class="login" action="#" method="get">
      <label>邮箱/用户名/已验证手机</label>
-     <input type="text" class="loginName" />
+     <input type="text" class="loginName" id="username" name="username"/>
      <label>密码</label>
-     <input type="password" class="loginPwd" />
+     <input type="password" class="loginPwd" id="password" name="password"/>
      <div class="jizhu">
       <input type="checkbox" /> 一周内免登陆 <a href="#">忘记密码</a>
      </div><!--jizhu/-->
@@ -48,8 +53,9 @@
       <input type="submit" value=" 登 录 " />
      </div><!--loginSub/-->
      <h2>合作伙伴登录：</h2>
-     <img src="images/hezuo.jpg" width="260" height="30" />
+     <img src="${contextPath}/assets/images/hezuo.jpg" width="260" height="30" />
     </form><!--login/-->
+    
    </div><!--loginRight/-->
    <div class="clears"></div>
   </div><!--loginBox/-->
@@ -57,7 +63,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

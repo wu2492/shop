@@ -2,14 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com</groupId>
-	<artifactId>shop</artifactId>
+	<groupId>com.hwua.java7</groupId>
+	<artifactId>ssm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>war</packaging>
 
-	<name>ssm实战</name>
-	<description>ssm的实战项目</description>
+	<name>SSM教学项目</name>
+	<description>海文长沙Java7 SSM教学项目</description>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
