@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,12 +14,12 @@
 <body>
  <div class="hrader" id="header">
   <div class="top">
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
+   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
+   <a href="reg.jsp">注册</a>
    <ul class="topNav">
-    <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
+    <li><a href="order.jsp">我的订单 </a></li>
+    <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+    <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
 <li><a href="#" class="lan">中文</a></li>
     <li><a href="#" class="lan">English</a></li>
@@ -27,7 +29,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -44,23 +46,23 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
  <div class="navBox navBg3">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
-   <li class="navCur"><a href="vip.html">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
-   <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li><a href="help.html">帮助</a></li>
+   <li><a href="index.jsp">首页</a></li>
+   <li><a href="buy.jsp">买家</a></li>
+   <li><a href="sell.jsp">卖家</a></li>
+   <li class="navCur"><a href="vip.jsp">会员中心</a></li>
+   <li><a href="xuanshang.jsp">悬赏榜</a></li>
+   <li><a href="luntan.jsp" class="luntan">论坛</a></li>
+   <li><a href="help.jsp">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
@@ -69,77 +71,63 @@
    <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
    <h3 class="vipName">测试webqin</h3>
    <ul class="buy-nav">
-    <li class="buy-nav1 buy-navCur"><a href="vip-sell.html">卖家中心</a></li>
-    <li class="buy-nav2"><a href="vip-product.html">发布产品</a></li>
-    <li class="buy-nav3"><a href="vip-prolist.html">产品列表</a></li>
-    <li class="buy-nav4"><a href="vip-dingzhi.html">定制服务</a></li>
-    <li class="buy-nav5"><a href="vip-pingjia.html">评价留言</a></li>
-    <li class="buy-nav6"><a href="vip-pwd.html">修改密码</a></li>
-    <li class="buy-nav7"><a href="vip-shou.html">售后管理</a></li>
+    <li class="buy-nav1"><a href="vip-sell.jsp">卖家中心</a></li>
+    <li class="buy-nav2 buy-navCur"><a href="vip-product.jsp">发布产品</a></li>
+    <li class="buy-nav3"><a href="vip-prolist.jsp">产品列表</a></li>
+    <li class="buy-nav4"><a href="vip-dingzhi.jsp">定制服务</a></li>
+    <li class="buy-nav5"><a href="vip-pingjia.jsp">评价留言</a></li>
+    <li class="buy-nav6"><a href="vip-pwd.jsp">修改密码</a></li>
+    <li class="buy-nav7"><a href="vip-shou.jsp">售后管理</a></li>
    </ul><!--buy-nav/-->
   </div><!--vipLeft/-->
   <div class="vipRight">
-   <h2 class="vipTitle">卖家中心</h2>
-   
-   <form action="#" class="registerform">
-      <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="90"><span>*</span>真实姓名：</td>
-          <td width="430"><input name="name" type="text" class="text inputxt" /></td>
-          <td rowspan="8" valign="top"><div id="tx"><img src="images/vipImg.jpg" /></div>
-            <span class="file"><input name="" type="file" class="file1" /></span></td>
-        </tr>
-        <tr>
-          <td><span>*</span>所在城市：</td>
-          <td><select name="">
-              <option>省</option>
-              <option>上海</option>
-            </select>
-            <select name="">
-              <option>市</option>
-              <option>上海</option>
-            </select>
-            <select name="">
-              <option>区</option>
-              <option>宝山</option>
-            </select></td>
-        </tr>
-        <tr>
-          <td>&nbsp;性别：</td>
-          <td><input type="radio" name="property" value="person" id="person" class="pr1" datatype="*" nullmsg="请选择性别！"  />
-            男　
-            <input type="radio" name="property" value="company" id="company" class="pr1" />
-            女</td>
-        </tr>
-        <tr>
-          <td>&nbsp;EMAIL:</td>
-          <td><input type="text" class="text1" datatype="e"  /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;身份证:</td>
-          <td><input name="" type="text" class="text1 inputxt" datatype="idcard" nullmsg="请填写身份证号码！" errormsg="您填写的身份证号码不对！必须位数字且不低于18位" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;类别：</td>
-          <td>艺术家</td>
-        </tr>
-        <tr>
-          <td>&nbsp;个人简介：</td>
-          <td><textarea tip="请在这里输入您的简介。" altercss="gray" class="gray" name="msg"  datatype="*"value="">请在这里输入您的简介。</textarea></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><input name="" value="保存资料" type="submit" class="submit" /></td>
-        </tr>
-      </table>
-      </form>
+   <h2 class="vipTitle">发布产品</h2>
+   <form action="#" method="get" enctype="multipart/form-data" class="vip-pro">
+   <table>
+    <tr>
+     <th>信息标题</th>
+     <td><input type="text" /></td>
+    </tr>
+    <tr>
+     <th>手机图片</th>
+     <td><input type="file" /></td>
+    </tr>
+    <tr>
+     <th>手机分类</th>
+     <td>
+      <select>
+       <option>智能机</option>
+       <option>功能机</option>
+       <option>老人机</option>
+       <option>拖拉机</option>
+      </select>
+     </td>
+    </tr>
+    <tr>
+     <th>价格</th>
+     <td><input type="text" /></td>
+    </tr>
+    <tr>
+     <th>产品介绍</th>
+     <td>
+      <textarea>
+      
+      </textarea>
+     </td>
+    </tr>
+   </table><!--vip-pro/-->
+   <div class="ti-qu">
+    <input type="submit" value="提交" />
+    <input type="reset" value="取消" />
+   </div><!--ti-qu/-->
+   </form>
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

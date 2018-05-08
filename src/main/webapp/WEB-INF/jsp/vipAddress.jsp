@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,12 +14,12 @@
 <body>
  <div class="hrader" id="header">
   <div class="top">
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
+   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
+   <a href="reg.jsp">注册</a>
    <ul class="topNav">
-    <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
+    <li><a href="order.jsp">我的订单 </a></li>
+    <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+    <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
 <li><a href="#" class="lan">中文</a></li>
     <li><a href="#" class="lan">English</a></li>
@@ -27,7 +29,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -44,43 +46,48 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
- <div class="navBox navBg3">
+ <div class="navBox navBg1">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
-   <li><a href="vip.html">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
-   <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li class="navCur"><a href="help.html">帮助</a></li>
+   <li><a href="index.jsp">首页</a></li>
+   <li><a href="buy.jsp">买家</a></li>
+   <li><a href="sell.jsp">卖家</a></li>
+   <li class="navCur"><a href="vip.jsp">会员中心</a></li>
+   <li><a href="xuanshang.jsp">悬赏榜</a></li>
+   <li><a href="luntan.jsp" class="luntan">论坛</a></li>
+   <li><a href="help.jsp">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
- <div class="car">
-  <div class="cont">
-   <div class="carImg"><img src="images/car1.jpg" width="951" height="27" /></div>
-   <h4 class="orderTitle">收货地址</h4>
-   <table class="ord">
-    <tr>
-     <td width="30%">
-      <input type="radio" /> 张大炮
-     </td>
-     <td width="50%">
-      上海,上海市,普陀区,曹杨路1040弄中友大厦一号楼19楼	,200000,13020129519
-     </td>
-     <td>
-      <span class="green upd">[修改]</span> | <span class="green add">[添加]</span> 
-     </td>
-    </tr>
-   </table><!--ord/-->
+ <div class="vipBox">
+  <div class="vipLeft">
+   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
+   <h3 class="vipName">测试webqin</h3>
+   <dl class="vipNav">
+    <dt class="vip_1 vipCur">买家中心</dt>
+     <dd><a href="vipOrder.jsp">我的订单</a></dd>
+     <dd><a href="vipShoucang.jsp">收藏关注</a></dd>
+    <dt class="vip_2">账户设置</dt>
+     <dd><a href="vip.jsp">个人信息</a></dd>
+     <dd><a href="vipPwd.jsp">密码修改</a></dd>
+     <dd class="ddCur"><a href="vipAddress.jsp">收货地址</a></dd>
+     <dd><a href="vipXiaofei.jsp">消费记录</a></dd>
+    <dt class="vip_3">客户服务</dt>
+     <dd><a href="vipQuxiao.jsp">取消订单/退货</a></dd>
+     
+     <dd><a href="vipTousu.jsp">我的投诉</a></dd>
+   </dl><!--vipNav/-->
+  </div><!--vipLeft/-->
+  <div class="vipRight">
+   <h2 class="vipTitle">收货地址</h2>
+   
    <div class="address">
     <div class="addList">
      <label><span class="red">* </span>选择地区:</label>
@@ -111,93 +118,74 @@
      <input type="text" /> 或者固定电话 <input type="text" />
     </div><!--addList--> 
     <div class="addList2">
-     <input type="image" src="images/queren.jpg" width="100" height="32" />
+     <input name="" value=" 确 认 " type="submit" class="submit" />
     </div><!--addList2/-->
    </div><!--address/-->
-   <table class="orderList">
+   <table class="vipAdress">
     <tr>
-     <th width="20"></th>
-     <th width="450">商品</th>
-     <th width="130">单价</th>
-     <th width="130">数量</th>
-     <th width="130">总金额</th>
-     <th width="105">操作</th>
+     <th>收货人</th>
+     <th>所在地区</th>
+     <th>街道地址</th>
+     <th>邮编</th>
+     <th>电话/手机</th>
+     <th>操作</th>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
-     <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
-      <img src="images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
-      店铺：unique VIP店铺 上海分店
-     </td>
+     <td>张益达</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
-     <td>
-      <dl>
-       <dt><a href="proinfo.html"><img src="images/phone.png" width="85" height="85" /></a></dt>
-       <dd>全球最大的中文搜索引擎、致力于让网民更便捷<br /><span class="red">有货：</span>从上海出发</dd>
-       <div class="clears"></div>
-      </dl>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td>
-     <div class="jia_jian">
-      <img src="images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="1" />
-      <img src="images/jia.jpg" width="21" height="25" class="jia" />
-     </div>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
+     <td>张大炮</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
-     <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
-      <img src="images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
-      店铺：unique VIP店铺 北京分店
-     </td>
+     <td>李思明</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
-     <td>
-      <dl>
-       <dt><a href="proinfo.html"><img src="images/phone.png" width="85" height="85" /></a></dt>
-       <dd>全球最大的中文搜索引擎、致力于让网民更便捷<br /><span class="red">有货：</span>从上海出发</dd>
-       <div class="clears"></div>
-      </dl>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td>
-     <div class="jia_jian">
-      <img src="images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="1" />
-      <img src="images/jia.jpg" width="21" height="25" class="jia" />
-     </div>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
+     <td>成吉思汗</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
-    
     <tr>
-     <td colspan="6"><div class="shanchu"><img src="images/lajio.jpg" /> 全部删除</div></td>
+     <td>忽必烈</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
-   </table><!--orderList/-->
-   <div class="zongji">
-    <strong>所需运费：</strong>￥0.00 &nbsp;&nbsp;
-    <strong>总计(不含运费)：</strong><strong class="red">￥70.42</strong>
-   </div><!--zongji/-->
-   <div class="jiesuan">
-    <a href="index.html" class="jie_1">继续购物&gt;&gt;</a>
-    <a href="order.html" class="jie_2">立即结算&gt;&gt;</a>
-    <div class="clears"></div>
-   </div><!--jiesuan/-->
-   <div class="clears"></div>
-  </div><!--cont/-->
- </div><!--car/-->
+    <tr>
+     <td>乾隆</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
+    </tr>
+   </table><!--vipAdress/-->
+  </div><!--vipRight/-->
+  <div class="clears"></div>
+ </div><!--vipBox/-->
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,12 +14,12 @@
 <body>
  <div class="hrader" id="header">
   <div class="top">
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
+   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
+   <a href="reg.jsp">注册</a>
    <ul class="topNav">
-    <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
+    <li><a href="order.jsp">我的订单 </a></li>
+    <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+    <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
 <li><a href="#" class="lan">中文</a></li>
     <li><a href="#" class="lan">English</a></li>
@@ -27,7 +29,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -44,23 +46,23 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
  <div class="navBox navBg3">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
-   <li><a href="vip.html">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
-   <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li class="navCur"><a href="help.html">帮助</a></li>
+   <li><a href="index.jsp">首页</a></li>
+   <li><a href="buy.jsp">买家</a></li>
+   <li><a href="sell.jsp">卖家</a></li>
+   <li><a href="vip.jsp">会员中心</a></li>
+   <li><a href="xuanshang.jsp">悬赏榜</a></li>
+   <li><a href="luntan.jsp" class="luntan">论坛</a></li>
+   <li class="navCur"><a href="help.jsp">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
@@ -110,16 +112,16 @@
            10、评价成功：<br />
          </div>
          <div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=1" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=4949f8587bec54e741ec1a1e89399bfd/d009b3de9c82d158a4c92cd7800a19d8bc3e4208.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=2" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://d.hiphotos.baidu.com/exp/w=500/sign=36414c81912397ddd67998046983b216/ae51f3deb48f8c54c797b0493a292df5e0fe7f0b.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=3" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://f.hiphotos.baidu.com/exp/w=500/sign=6cd08bb976094b36db921bed93cd7c00/bd315c6034a85edfd0cc8b4549540923dd547517.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=4" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=85a39d02564e9258a63486eeac83d1d1/c9fcc3cec3fdfc031ec596ded43f8794a4c22612.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=5" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=507171fbcbef76093c0b999f1edca301/9825bc315c6034a8025acde7cb1349540923761f.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=6" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=720fa906352ac65c67056673cbf3b21d/4ec2d5628535e5ddaf99d0b976c6a7efce1b621a.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=7" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=cef19ae24aed2e73fce9862cb700a16d/54fbb2fb43166d22b7c160f2462309f79052d226.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=8" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=06f5425e7bf40ad115e4c7e3672d1151/0d338744ebf81a4c5d8199afd72a6059252da620.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=9" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=f5a419d4b2b7d0a27bc9049dfbee760d/f11f3a292df5e0fec1b5fc675c6034a85edf7222.jpg" /></a></div>
-           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.html?picindex=10" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://c.hiphotos.baidu.com/exp/w=500/sign=9cbc475e28381f309e198da999004c67/730e0cf3d7ca7bcb08d5b249be096b63f624a82d.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=1" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=4949f8587bec54e741ec1a1e89399bfd/d009b3de9c82d158a4c92cd7800a19d8bc3e4208.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=2" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://d.hiphotos.baidu.com/exp/w=500/sign=36414c81912397ddd67998046983b216/ae51f3deb48f8c54c797b0493a292df5e0fe7f0b.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=3" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://f.hiphotos.baidu.com/exp/w=500/sign=6cd08bb976094b36db921bed93cd7c00/bd315c6034a85edfd0cc8b4549540923dd547517.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=4" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=85a39d02564e9258a63486eeac83d1d1/c9fcc3cec3fdfc031ec596ded43f8794a4c22612.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=5" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=507171fbcbef76093c0b999f1edca301/9825bc315c6034a8025acde7cb1349540923761f.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=6" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=720fa906352ac65c67056673cbf3b21d/4ec2d5628535e5ddaf99d0b976c6a7efce1b621a.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=7" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=cef19ae24aed2e73fce9862cb700a16d/54fbb2fb43166d22b7c160f2462309f79052d226.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=8" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://e.hiphotos.baidu.com/exp/w=500/sign=06f5425e7bf40ad115e4c7e3672d1151/0d338744ebf81a4c5d8199afd72a6059252da620.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=9" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://a.hiphotos.baidu.com/exp/w=500/sign=f5a419d4b2b7d0a27bc9049dfbee760d/f11f3a292df5e0fec1b5fc675c6034a85edf7222.jpg" /></a></div>
+           <div><a href="http://jingyan.baidu.com/album/48b37f8d4d3fc81a65648846.jsp?picindex=10" target="_self"><img alt="最全的unique购物流程（文字版+图文版）" src="http://c.hiphotos.baidu.com/exp/w=500/sign=9cbc475e28381f309e198da999004c67/730e0cf3d7ca7bcb08d5b249be096b63f624a82d.jpg" /></a></div>
          </div>
        </li>
      </ol>
@@ -132,7 +134,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

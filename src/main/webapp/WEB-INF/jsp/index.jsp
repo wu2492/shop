@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,31 +12,31 @@
 
 <body>
  <div class="hrader">
-  <a href="login.html" style="color:#FD7306;margin-left:20px;">请登录</a> 
-  <a href="reg.html">注册</a>
+  <a href="login.jsp" style="color:#FD7306;margin-left:20px;">请登录</a> 
+  <a href="reg.jsp">注册</a>
   <div class="topNav">
-   <a href="index.html" style="color:#FD7306;">首页</a>
-   <a href="buy.html">买家</a>
-   <a href="sell.html">卖家</a>
-   <a href="vip.html">会员中心</a>
-   <a href="xuanshang.html">悬赏榜</a>
-   <a href="luntan.html" class="luntan">论坛</a>
-   <a href="help.html">帮助</a>
+   <a href="index.jsp" style="color:#FD7306;">首页</a>
+   <a href="buy.jsp">买家</a>
+   <a href="sell.jsp">卖家</a>
+   <a href="vip.jsp">会员中心</a>
+   <a href="xuanshang.jsp">悬赏榜</a>
+   <a href="luntan.jsp" class="luntan">论坛</a>
+   <a href="help.jsp">帮助</a>
    <a href="#">&nbsp;</a>
    <a href="#" class="lan">中文</a>
    <a href="#" class="lan">English</a>
   </div><!--topNav/-->
  </div><!--hrader/-->
  <div class="inCont">
-  <h1 class="logo"><a href="index.html"><img src="images/logo.png" width="304" height="74" /></a></h1>
-  <form class="select" action="prolist.html" method="get">
+  <h1 class="logo"><a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a></h1>
+  <form class="select" action="prolist.jsp" method="get">
    <div>
     <input type="text" value="请输入你需要的产品" class="selName" onFocus=OnEnter(this) onBlur=OnExit(this) />
     <input type="image" src="images/sub.png" width="99" height="36" class="sel" />
    </div>
   </form><!--select/-->
   <div class="ban">
-   <a href="prolist.html"><img src="images/phone.png" /></a>
+   <a href="prolist.jsp"><img src="images/phone.png" /></a>
   </div><!--ban/-->
  </div><!--inCont/-->
  <div class="footer">
