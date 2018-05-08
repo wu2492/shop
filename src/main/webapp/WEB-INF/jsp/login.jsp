@@ -9,15 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="${contextPath}${contextPath}/assets/js/jquery.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 </head>
 
 <body>
  <div class="hrader" id="header">
-  <a href="login.jsp" style="color:#FD7306;margin-left:20px;">请登录</a> 
-  <a href="reg.jsp">注册</a>
+  <a href="${contextPath}/login" style="color:#FD7306;margin-left:20px;">请登录</a> 
+  <a href="${contextPath}/regist">注册</a>
   <div class="topNav">
    <a href="index.jsp" style="color:#FD7306;">首页</a>
    <a href="buy.jsp">买家</a>
@@ -41,7 +41,8 @@
    </div><!--loginLeft/-->
    <div class="loginRight">
    
-    <form class="login" action="#" method="get">
+    <form class="login" action="#" method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
      <label>邮箱/用户名/已验证手机</label>
      <input type="text" class="loginName" id="username" name="username"/>
      <label>密码</label>
