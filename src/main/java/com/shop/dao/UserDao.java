@@ -6,6 +6,6 @@ public interface UserDao {
 
 	void regist(User user);
 
-	User findOneUsername(String uaername);
+	User findOneUsername(String username);
 
 }

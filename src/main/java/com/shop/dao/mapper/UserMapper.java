@@ -6,6 +6,6 @@ public interface UserMapper {
 
 	void regist(User user);
 
-	User findOneUsername(String uaername);
+	User findOneUsername(String username);
 
 }
