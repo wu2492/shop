@@ -1,5 +1,7 @@
 package com.shop.entiy;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class User {
@@ -15,7 +17,9 @@ public class User {
 	private String username;
 	@Size(min=6,max=64,message="密码在6~64之间")
 	private String password;
+	@Email(regexp="^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.[a-zA-Z0-9]{2,6}$",message="邮箱号不符合规则")
 	private String eMail;
+	@Pattern(regexp="^1[3|4|5|7|8][0-9]{9}$",message="手机号不符合规则")
 	private String phone;
 	public Long getId() {
 		return id;

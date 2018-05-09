@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 	
 	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
 	
@@ -10,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<link rel="stylesheet" href="${contextPath}/assets/css/app.css" type="text/css"/>
 <script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 </head>
@@ -42,28 +44,39 @@
     <li class="regEqBg2">采购商</li>
     <div class="clears"></div>
    </ul><!--regEq/-->
-   
-   <form action="${contextPath}/regist" method="post" class="regForm">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+   <form:form action="${contextPath}/regist" method="post" class="regForm" commandName="user">
+    <%-- <form:input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
     <div class="loginBuyList">
      <label for="name">用户名：</label>
-     <input type="text" id="name" name="username"/>
+     <!-- <input type="text" id="name" name="username"/> -->
+     <form:input type="text" path="username"/>
+     <form:errors path="username" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="email">邮箱：</label>
-     <input type="text" id="email" name="eMail"/>
+    <!--  <input type="text" id="email" name="eMail"/> -->
+     <form:input type="text" path="eMail"/>
+     <form:errors path="eMail" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="tel">手机号码：</label>
-     <input type="text" id="tel" name="phone"/>
+     <!-- <input type="text" id="tel" name="phone"/> -->
+     <form:input type="text" path="phone"/>
+     <form:errors path="phone" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="pwd">设置密码：</label>
-     <input type="password" id="pwd" name="password"/>
+     <!-- <input type="password" id="pwd" name="password"/> -->
+     <form:input type="password" path="password"/>
+     <form:errors path="password" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList" style="border:#DEDEDE 1px solid;">
      <label for="pwd1">确认密码：</label>
      <input type="password" id="pwd1" name="password1"/>
+     <p class="field-error"> ${error}</p>
+    <%--  <form:input type="text" path="password1"/>
+     <form:errors path="password1" cssClass="field-error"></form:errors> --%>
     </div><!--loginBuyList/-->
     
     <div class="loginBuyyan">
@@ -80,7 +93,7 @@
     <div class="regSubs">
      <input type="submit" value=" 注 册 " />
     </div><!--regSub/-->
-   </form><!--/-->
+   </form:form><!--/-->
    
    <form action="#" method="get" class="regForm">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -103,6 +116,7 @@
     <div class="loginBuyList" style="border:#DEDEDE 1px solid;">
      <label for="pwd1">确认密码：</label>
      <input type="password" id="pwd1" name="password1"/>
+    
     </div><!--loginBuyList/-->
     
     <div class="loginBuyyan">
