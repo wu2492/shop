@@ -6,13 +6,25 @@
 
 	<insert id="regist">
 		insert into
-		shop_user(id,username,password,e_mail,phone)
-		values(seq_shop_use.nextval,#{username},#{password},#{eMail},#{phone})
+		shop_user(id,username,password,e_mail,phone,role_id)
+		values(seq_shop_user.nextval,#{username},#{password},#{eMail},#{phone},2)
 	</insert>
 	
-	<select id="findOneUsername" resultType="com.shop.entiy.User">
-		select id,username,password,e_mail,phone 
-		from shop_user
+	<select id="findOneUsername" resultMap="oneUsername">
+		select u.id user_id,u.username user_username,u.password user_password,u.e_mail user_e_mail,
+				u.phone user_phone,r.id role_id,r.name role_name
+		from shop_user u inner join shop_role r on u.role_id = r.id
 		where username = #{username}
 	</select>
+	<resultMap type="com.shop.entiy.User" id="oneUsername">
+	<id property="id" column="user_id"/>
+	<result property="username" column="user_username"/>
+	<result property="password" column="user_password"/>
+	<result property="eMail" column="user_e_mail"/>
+	<result property="phone" column="user_phone"/>
+	<association property="role" javaType="com.shop.entiy.Role">
+		<id property="id" column="role_id"/>
+		<result property="name" column="role_name"/>
+	</association>
+	</resultMap>
 </mapper>

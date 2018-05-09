@@ -6,12 +6,13 @@ import javax.validation.constraints.Size;
 
 public class User {
 	/*create table shop_user(
-			id number(16) primary key,
-			username varchar(64),
-			password varchar(64),
-			e_mail varchar(64),
-			phone varchar(16)
-			);*/
+      id number(16) primary key,
+      username varchar(64),
+      password varchar(64),
+      e_mail varchar(64),
+      phone varchar(16),
+      role_id number(16) references shop_role(id)
+      );*/
 	private Long id;
 	@Size(min=4,max=32,message="用户名在4~32之间")
 	private String username;
@@ -21,6 +22,9 @@ public class User {
 	private String eMail;
 	@Pattern(regexp="^1[3|4|5|7|8][0-9]{9}$",message="手机号不符合规则")
 	private String phone;
+	
+	private Role role;
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,6 +54,12 @@ public class User {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	@Override
 	public String toString() {

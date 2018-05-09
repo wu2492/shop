@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 </head>
 
@@ -29,12 +33,12 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
     <input type="text" class="subText" />
-    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
+    <input type="image" src="${contextPath}/assets/images/sub.jpg" width="95" height="32" class="subImg" />
     <div class="hotci">
     <a href="#">酷派大神</a>
     <a href="#">三星s5</a>
@@ -46,10 +50,10 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
@@ -68,7 +72,7 @@
  </div><!--navBox/-->
  <div class="vipBox">
   <div class="vipLeft">
-   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
+   <h2 class="headImg"><img src="${contextPath}/assets/images/vipImg.jpg" width="183" height="169" /></h2>
    <h3 class="vipName">测试webqin</h3>
    <ul class="buy-nav">
     <li class="buy-nav1"><a href="vip-sell.jsp">卖家中心</a></li>
@@ -82,35 +86,35 @@
   </div><!--vipLeft/-->
   <div class="vipRight">
    <h2 class="vipTitle">发布产品</h2>
-   <form action="#" method="get" enctype="multipart/form-data" class="vip-pro">
+   
+   <form action="${contextPath}/product-new" method="get" enctype="multipart/form-data" class="vip-pro">
    <table>
     <tr>
      <th>信息标题</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="name"/></td>
     </tr>
     <tr>
      <th>手机图片</th>
-     <td><input type="file" /></td>
+     <td><input type="file" name="print_url"/></td>
     </tr>
     <tr>
      <th>手机分类</th>
      <td>
-      <select>
-       <option>智能机</option>
-       <option>功能机</option>
-       <option>老人机</option>
-       <option>拖拉机</option>
+      <select name="sortId">
+      <c:forEach items="${sorts}" var="sort">
+       <option value="${sort.id}">${sort.name}</option>
+      </c:forEach>
       </select>
      </td>
     </tr>
     <tr>
      <th>价格</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="price"/></td>
     </tr>
     <tr>
      <th>产品介绍</th>
      <td>
-      <textarea>
+      <textarea name="describe">
       
       </textarea>
      </td>
@@ -127,7 +131,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

@@ -1,10 +1,7 @@
 package com.shop.service.impl;
 
 import java.util.Arrays;
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -50,7 +47,7 @@ class UserDetilsImpl extends org.springframework.security.core.userdetails.User{
 	private User user;
 	
 	public UserDetilsImpl(User user) {
-		super(user.getUsername(), user.getPassword(), Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+		super(user.getUsername(), user.getPassword(), Arrays.asList(new SimpleGrantedAuthority("ROLE_"+user.getRole().getName())));
 		this.user = user;
 	}
 	
