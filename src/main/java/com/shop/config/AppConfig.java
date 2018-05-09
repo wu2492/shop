@@ -55,6 +55,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/assets/**").addResourceLocations("/public/");
+		registry.addResourceHandler("/customer-pictures/**").addResourceLocations("file:///D:/wubiao/upload/");
 	}
 	
 	@Bean

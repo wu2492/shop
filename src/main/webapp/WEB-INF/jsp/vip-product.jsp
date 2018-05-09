@@ -87,7 +87,8 @@
   <div class="vipRight">
    <h2 class="vipTitle">发布产品</h2>
    
-   <form action="${contextPath}/product-new" method="get" enctype="multipart/form-data" class="vip-pro">
+   <form action="${contextPath}/product-new" method="post" enctype="multipart/form-data" class="vip-pro" enctype="multipart/form-data">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
    <table>
     <tr>
      <th>信息标题</th>
@@ -95,7 +96,7 @@
     </tr>
     <tr>
      <th>手机图片</th>
-     <td><input type="file" name="print_url"/></td>
+     <td><input type="file" name="print"/></td>
     </tr>
     <tr>
      <th>手机分类</th>

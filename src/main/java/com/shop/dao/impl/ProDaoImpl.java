@@ -1,5 +1,7 @@
 package com.shop.dao.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +17,12 @@ public class ProDaoImpl implements ProDao {
 	
 	@Override
 	public void createPro(Pro pro,String sortId) {
-		proMapper.createPro(pro);
+		proMapper.createPro(sortId,pro);
+	}
+
+	@Override
+	public List<Pro> findAll() {
+		return proMapper.findAll();
 	}
 
 }

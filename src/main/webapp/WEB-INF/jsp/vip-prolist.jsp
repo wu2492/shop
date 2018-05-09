@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 </head>
 
@@ -29,12 +33,12 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
     <input type="text" class="subText" />
-    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
+    <input type="image" src="${contextPath}/assets/images/sub.jpg" width="95" height="32" class="subImg" />
     <div class="hotci">
     <a href="#">酷派大神</a>
     <a href="#">三星s5</a>
@@ -46,10 +50,10 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
@@ -68,7 +72,7 @@
  </div><!--navBox/-->
  <div class="vipBox">
   <div class="vipLeft">
-   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
+   <h2 class="headImg"><img src="${contextPath}/assets/images/vipImg.jpg" width="183" height="169" /></h2>
    <h3 class="vipName">测试webqin</h3>
    <ul class="buy-nav">
     <li class="buy-nav1"><a href="vip-sell.jsp">卖家中心</a></li>
@@ -92,42 +96,17 @@
      <th width="56">数量</th>
      <th width="">操作</th>
     </tr>
-    <tr>
-     <td align="center"><img src="images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">1sdfavsd</strong></td>
-     <td align="center">73</td>
-     <td align="center">2014-10-22</td>
-     <td align="center">100</td>
-     <td align="center"><a href="#" class="shan">删除</a></td>
-    </tr>
-    <tr>
-     <td align="center"><img src="images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">1sdfavsd</strong></td>
-     <td align="center">73</td>
-     <td align="center">2014-10-22</td>
-     <td align="center">100</td>
-     <td align="center"><a href="#" class="shan">删除</a></td>
-    </tr>
-    <tr>
-     <td align="center"><img src="images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">1sdfavsd</strong></td>
-     <td align="center">73</td>
-     <td align="center">2014-10-22</td>
-     <td align="center">100</td>
-     <td align="center"><a href="#" class="shan">删除</a></td>
-    </tr>
-    <tr>
-     <td align="center"><img src="images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">1sdfavsd</strong></td>
-     <td align="center">73</td>
-     <td align="center">2014-10-22</td>
-     <td align="center">100</td>
-     <td align="center"><a href="#" class="shan">删除</a></td>
-    </tr>
+    <c:forEach items="${pros}" var="pro">
+	    <tr>
+	     <td align="center"><img src="${contextPath}/customer-pictures/${pro.printUrl}" width="119" height="79" /></td>
+	     <td><strong class="pstitle">${pro.describe}</strong></td>
+	     <td align="center"><strong class="sellName">1sdfavsd</strong></td>
+	     <td align="center">73</td>
+	     <td align="center">2014-10-22</td>
+	     <td align="center">100</td>
+	     <td align="center"><a href="#" class="shan">删除</a></td>
+	    </tr>
+    </c:forEach>
    </table><!--vip-proList/-->
   </div><!--vipRight/-->
   <div class="clears"></div>
@@ -135,7 +114,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

@@ -1,5 +1,7 @@
 package com.shop.entiy;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Pro {
 	/*
 	 * create table pro(
@@ -18,6 +20,7 @@ sort_id number(16) references pro_sort(id)
 	private Long price;
 	private String describe;
 	
+	private MultipartFile print;
 	private Sort sort;
 
 	public Long getId() {
@@ -36,25 +39,13 @@ sort_id number(16) references pro_sort(id)
 		this.name = name;
 	}
 
-
-	public String getDescribe() {
-		return describe;
+	public MultipartFile getPrint() {
+		return print;
 	}
 
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setPrint(MultipartFile print) {
+		this.print = print;
 	}
-
-	public Sort getSort() {
-		return sort;
-	}
-
-	public void setSort(Sort sort) {
-		this.sort = sort;
-	}
-	
-
-	
 
 	public String getPrintUrl() {
 		return printUrl;
@@ -72,27 +63,39 @@ sort_id number(16) references pro_sort(id)
 		this.price = price;
 	}
 
-	public Pro() {
+	public String getDescribe() {
+		return describe;
 	}
 
-	public Pro(Long id, String name, String printUrl, Long price, String describe, Sort sort) {
-		super();
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+
+	public Sort getSort() {
+		return sort;
+	}
+
+	public void setSort(Sort sort) {
+		this.sort = sort;
+	}
+
+	public Pro(Long id, String name, MultipartFile print, String printUrl, Long price, String describe, Sort sort) {
 		this.id = id;
 		this.name = name;
+		this.print = print;
 		this.printUrl = printUrl;
 		this.price = price;
 		this.describe = describe;
 		this.sort = sort;
 	}
 
-	@Override
-	public String toString() {
-		return "Pro [id=" + id + ", name=" + name + ", printUrl=" + printUrl + ", price=" + price + ", describe="
-				+ describe + ", sort=" + sort + "]";
+	public Pro() {
 	}
 
-
-
+	@Override
+	public String toString() {
+		return "Pro [id=" + id + ", name=" + name + ", print=" + print + ", printUrl=" + printUrl + ", price=" + price
+				+ ", describe=" + describe + ", sort=" + sort + "]";
+	}
 	
-
 }
