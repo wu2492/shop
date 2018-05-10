@@ -28,4 +28,15 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.findOneUsername(username);
 	}
 
+	@Override
+	public void updateEmail(User curUser) {
+		userMapper.updateEmail(curUser);		
+	}
+
+	@Override
+	public void updatePassword(User curUser, String userpassword) {
+		curUser.setPassword(passwordEncoder.encode(userpassword));
+		userMapper.updatePassword(curUser);
+	}
+
 }

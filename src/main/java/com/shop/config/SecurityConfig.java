@@ -14,10 +14,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-//			.antMatchers("/admin/**").access("isFullyAuthenticated() and hasRole('ADMIN')")
-//			.antMatchers("/assets/**", "/login","/product","/product-new").permitAll()
-//			.antMatchers("/regist").anonymous()
-			.antMatchers("/**").permitAll()
+			.antMatchers("/admin/**").access("isFullyAuthenticated() and hasRole('ADMIN')")
+			.antMatchers("/assets/**", "/login","/product","/product-new").permitAll()
+			.antMatchers("/regist").anonymous()
+			.antMatchers("/**").authenticated()
 			
 			.and()
 			

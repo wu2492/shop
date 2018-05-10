@@ -46,7 +46,7 @@
    </ul><!--regEq/-->
 
    <form:form action="${contextPath}/regist" method="post" class="regForm" commandName="user">
-    <%-- <form:input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
+   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="loginBuyList">
      <label for="name">用户名：</label>
      <!-- <input type="text" id="name" name="username"/> -->

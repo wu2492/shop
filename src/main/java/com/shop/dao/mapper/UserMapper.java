@@ -8,4 +8,8 @@ public interface UserMapper {
 
 	User findOneUsername(String username);
 
+	void updateEmail(User curUser);
+
+	void updatePassword(User user);
+
 }

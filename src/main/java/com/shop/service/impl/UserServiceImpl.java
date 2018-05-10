@@ -38,6 +38,16 @@ public class UserServiceImpl implements UserService,UserDetailsService {
 		return userDetilsImpl;
 	}
 
+	@Override
+	public void updateEmail(User curUser) {
+		userDao.updateEmail(curUser);		
+	}
+
+	@Override
+	public void updatePassword(User curUser, String userpassword) {
+		userDao.updatePassword(curUser,userpassword);
+	}
+
 }
 
 class UserDetilsImpl extends org.springframework.security.core.userdetails.User{

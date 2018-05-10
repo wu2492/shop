@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.mapper.PersonalCenterMapper">
+	<select id="findOneConterDetails" resultType="com.shop.entiy.PersonalCenter">
+		select id,name,portrait_url,city,sex,identity_card,type,ndividual_resume from personal_center
+		where user_id = #{id}
+	</select>
+	
+	<insert id="createPersonalCenter">
+		insert into personal_center(id,name,portrait_url,city,sex,identity_card,type,ndividual_resume,user_id)
+		values(seq_personal_center.nextval,#{name},#{portraitUrl},#{city},#{sex},#{identityCard},#{type},#{ndividualResume},#{user.id})
+	</insert>
+	
+	<update id="updatePersonalCenter">
+		update personal_center set name = #{name}, portrait_url = #{portraitUrl},city=#{city},sex=#{sex},identity_card=#{identityCard},
+		type=#{type},ndividual_resume=#{ndividualResume} where id = #{id}
+	</update>
+	
+</mapper>
