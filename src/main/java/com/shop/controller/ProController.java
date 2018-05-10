@@ -55,13 +55,14 @@ public class ProController {
 	public String product(Model model){
 		List<Sort> sorts = sortService.findAll();
 		model.addAttribute("sorts", sorts);
-		return "redirect:/prolist";
+		return "vip-product";
 	}
 	@RequestMapping(method=RequestMethod.GET,value="/prolist")
 	public String prolist(Model model){
 		List<Pro> pros = proService.findAll();
-		model.addAttribute("sorts", pros);
-		return "vip-prolist";
+		System.out.println(pros.size());
+		model.addAttribute("pros", pros);
+		return "prolist";
 	}
 	
 	

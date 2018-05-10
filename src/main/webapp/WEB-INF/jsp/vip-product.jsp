@@ -87,7 +87,7 @@
   <div class="vipRight">
    <h2 class="vipTitle">发布产品</h2>
    
-   <form action="${contextPath}/product-new" method="post" enctype="multipart/form-data" class="vip-pro" enctype="multipart/form-data">
+   <form action="${contextPath}/product-new" method="post" enctype="multipart/form-data" class="vip-pro">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
    <table>
     <tr>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.shop.dao.ProDao;
 import com.shop.dao.mapper.ProMapper;
 import com.shop.entiy.Pro;
+import com.shop.entiy.Sort;
 
 @Repository
 public class ProDaoImpl implements ProDao {
@@ -17,7 +18,10 @@ public class ProDaoImpl implements ProDao {
 	
 	@Override
 	public void createPro(Pro pro,String sortId) {
-		proMapper.createPro(sortId,pro);
+		Sort sort = new Sort();
+		sort.setId(Long.parseLong(sortId));
+		pro.setSort(sort);
+		proMapper.createPro(pro);
 	}
 
 	@Override

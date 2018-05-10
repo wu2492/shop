@@ -8,7 +8,7 @@ import com.shop.entiy.Pro;
 
 public interface ProMapper {
 
-	void createPro(@Param("sortId") String sortId,Pro pro);
+	void createPro(Pro pro);
 
 	List<Pro> findAll();
 

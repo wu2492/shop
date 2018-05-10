@@ -6,7 +6,7 @@
 	<insert id="createPro">
 		insert into
 		pro(id,name,print_url,price,describe,sort_id)
-		values(seq_shop_user.nextval,#{name},#{printUrl},#{price},#{describe},#{sortId})
+		values(seq_shop_user.nextval,#{name},#{printUrl},#{price},#{describe},#{sort.id})
 	</insert>
 	
 	<select id="findAll" resultMap="proDetailsMap">
