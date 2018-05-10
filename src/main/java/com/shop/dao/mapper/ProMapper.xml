@@ -14,6 +14,12 @@
 		 		p.price pro_price,p.describe p_describe,s.id sort_id,s.name sort_name
     	from pro p inner join pro_sort s on p.sort_id = s.id
 	</select>
+	<select id="findIdOnePro" resultMap="proDetailsMap">
+		select p.id pro_id,p.name pro_name,p.print_url pro_print_url,
+		 		p.price pro_price,p.describe p_describe,s.id sort_id,s.name sort_name
+    	from pro p inner join pro_sort s on p.sort_id = s.id
+    	where p.id = #{id}
+	</select>
 	<resultMap type="com.shop.entiy.Pro" id="proDetailsMap">
 		<id property="id" column="pro_id"/>
 		<result property="name" column="pro_name"/>

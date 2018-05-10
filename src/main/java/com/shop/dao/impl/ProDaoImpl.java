@@ -29,4 +29,9 @@ public class ProDaoImpl implements ProDao {
 		return proMapper.findAll();
 	}
 
+	@Override
+	public Pro findIdOnePro(Long id) {
+		return proMapper.findIdOnePro(id);
+	}
+
 }

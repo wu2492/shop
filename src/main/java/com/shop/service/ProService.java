@@ -10,4 +10,6 @@ public interface ProService {
 
 	List<Pro> findAll();
 
+	Pro detail(Long id);
+
 }

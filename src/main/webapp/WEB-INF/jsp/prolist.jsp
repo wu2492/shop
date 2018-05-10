@@ -633,7 +633,7 @@
 		 <c:forEach items="${pros}" var="pro">
 			<dl>
 				<dt>
-					<a href="buyinfo.jsp"><img src="${contextPath}/customer-pictures/${pro.printUrl}" /></a>
+					<a href="${contextPath}/buyinfo/${pro.id}"><img src="${contextPath}/customer-pictures/${pro.printUrl}" /></a>
 				</dt>
 				<dd>
 					<h3>${pro.price }</h3>

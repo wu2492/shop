@@ -25,4 +25,9 @@ public class ProServiceImpl implements ProService {
 		return proDao.findAll();
 	}
 
+	@Override
+	public Pro detail(Long id) {
+		return proDao.findIdOnePro(id);
+	}
+
 }

@@ -12,4 +12,6 @@ public interface ProMapper {
 
 	List<Pro> findAll();
 
+	Pro findIdOnePro(Long id);
+
 }

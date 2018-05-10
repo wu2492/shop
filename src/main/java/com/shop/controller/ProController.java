@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,9 +61,14 @@ public class ProController {
 	@RequestMapping(method=RequestMethod.GET,value="/prolist")
 	public String prolist(Model model){
 		List<Pro> pros = proService.findAll();
-		System.out.println(pros.size());
 		model.addAttribute("pros", pros);
 		return "prolist";
+	}
+	@RequestMapping(method=RequestMethod.GET,value="/buyinfo/{id}")
+	public String detail(@PathVariable Long id,Model model){
+		Pro pro = proService.detail(id);
+		model.addAttribute("pro", pro);
+		return "buyinfo";
 	}
 	
 	
