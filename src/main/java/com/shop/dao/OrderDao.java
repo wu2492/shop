@@ -8,4 +8,6 @@ public interface OrderDao {
 
 	List<Order> findAll(Long id);
 
+	Order findOneOrder(Long id);
+
 }

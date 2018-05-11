@@ -1,23 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 </head>
 
 <body>
  <div class="hrader" id="header">
   <div class="top">
-   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
-   <a href="reg.jsp">注册</a>
+    <a href="${contextPath}/vip" style="color:#C94E13;"><sec:authentication property="principal.user.username"/></a> 
    <ul class="topNav">
-    <li><a href="order.jsp">我的订单 </a></li>
+    <li><a href="${contextPath}/vipOrder">我的订单 </a></li>
     <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
@@ -29,12 +33,12 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
     <input type="text" class="subText" />
-    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
+    <input type="image" src="${contextPath}/assets/images/sub.jpg" width="95" height="32" class="subImg" />
     <div class="hotci">
     <a href="#">酷派大神</a>
     <a href="#">三星s5</a>
@@ -46,10 +50,10 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.jsp"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.jsp"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
@@ -68,15 +72,15 @@
  </div><!--navBox/-->
  <div class="vipBox">
   <div class="vipLeft">
-   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
+   <h2 class="headImg"><img src="${contextPath}/assets/images/vipImg.jpg" width="183" height="169" /></h2>
    <h3 class="vipName">测试webqin</h3>
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="vipOrder.jsp">我的订单</a></dd>
+     <dd><a href="${contextPath}/vipOrder">我的订单</a></dd>
      <dd><a href="vipShoucang.jsp">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
      <dd><a href="vip.jsp">个人信息</a></dd>
-     <dd><a href="vipPwd.jsp">密码修改</a></dd>
+     <dd><a href="${contextPath}/updatePassword">密码修改</a></dd>
      <dd><a href="vipAddress.jsp">收货地址</a></dd>
      <dd class="ddCur"><a href="vipXiaofei.jsp">消费记录</a></dd>
     <dt class="vip_3">客户服务</dt>
@@ -91,15 +95,15 @@
    <table class="orderDeatils">
     <tr>
      <th>订单编号</th>
-     <td>465489132154416</td>
+     <td>${order.orderNumber }</td>
     </tr>
     <tr>
      <th>商品名称</th>
-     <td>妙捷 一次性纸杯</td>
+     <td>${order.pro.name}</td>
     </tr>
     <tr>
      <th>订单价钱</th>
-     <td>￥185.80</td>
+     <td>￥${order.pro.price}</td>
     </tr>
     <tr>
      <th>订单信息</th>
@@ -112,11 +116,23 @@
     </tr>
     <tr>
      <th>支付方式</th>
-     <td>支付宝支付</td>
+     <td>
+	  <c:choose>
+      	<c:when test=" ${order.paymentMode == 0}">未选择</c:when>
+      	<c:when test=" ${order.paymentMode == 1}">支付宝支付</c:when>
+      	<c:when test=" ${order.paymentMode == 2}">微信支付</c:when>
+      	<c:when test=" ${order.paymentMode == 3}">银行卡支付</c:when>
+      </c:choose>
+	</td>
     </tr>
     <tr>
      <th>支付状态</th>
-     <td>成功</td>
+     <td>
+	  <c:choose>
+      	<c:when test="${order.paymentStatus==0}">未支付</c:when>
+      	<c:when test="${order.paymentStatus==1}">已支付</c:when>
+      </c:choose>
+	</td>
     </tr>
    </table> 
   </div><!--vipRight/-->
@@ -125,7 +141,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

@@ -21,7 +21,7 @@
   <div class="top">
    <a href="${contextPath}/vip" style="color:#C94E13;"><sec:authentication property="principal.user.username"/></a> 
    <ul class="topNav">
-    <li><a href="order.jsp">我的订单 </a></li>
+    <li><a href="${contextPath}/vipOrder">我的订单 </a></li>
     <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
@@ -80,7 +80,7 @@
      <dd><a href="vipShoucang.jsp">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
      <dd><a href="vip.jsp">个人信息</a></dd>
-     <dd><a href="vipPwd.jsp">密码修改</a></dd>
+     <dd><a href="${contextPath}/updatePassword">密码修改</a></dd>
      <dd><a href="vipAddress.jsp">收货地址</a></dd>
      <dd><a href="vipXiaofei.jsp">消费记录</a></dd>
     <dt class="vip_3">客户服务</dt>
@@ -118,7 +118,7 @@
       </c:choose>
       
       </td>
-      <td><a href="vipXiaofei.jsp">查看</a></td>
+      <td><a href="${contextPath}/vipXiaofei/${order.id}">查看</a></td>
      </tr>
      </c:forEach>
     <%--  <tr>

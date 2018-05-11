@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.dao.mapper.OrderMapper">
-	<select id="findAll" resultMap="userAllOrder">
+	<select id="findAll" resultMap="detailsOrder">
 		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
 		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,p.id pro_id,p.name pro_name,p.print_url pro_print_url,
 		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
@@ -11,8 +11,16 @@
 		inner join pro_sort ps on p.sort_id = ps.id
 		where o.user_id=#{id}
 	</select>
+	<select id="findOneOrder" resultMap="detailsOrder">
+		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
+		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,p.id pro_id,p.name pro_name,p.print_url pro_print_url,
+		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
+		from shop_order o inner join pro p on o.pro_id= p.id
+		inner join pro_sort ps on p.sort_id = ps.id
+		where o.id = #{id}
+	</select>
 	
-	<resultMap type="com.shop.entiy.Order" id="userAllOrder">
+	<resultMap type="com.shop.entiy.Order" id="detailsOrder">
 		<id property="id" column="order_id"/>
 		<result property="orderNumber" column="order_number"/>
 		<result property="orderTime" column="order_time"/>

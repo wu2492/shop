@@ -19,4 +19,9 @@ public class OrderDaoImpl implements OrderDao {
 		return orderMapper.findAll(id);
 	}
 
+	@Override
+	public Order findOneOrder(Long id) {
+		return orderMapper.findOneOrder(id);
+	}
+
 }

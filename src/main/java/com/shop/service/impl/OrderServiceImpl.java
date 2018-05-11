@@ -19,5 +19,10 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.findAll(id);
 	}
 
+	@Override
+	public Order orderDetails(Long id) {
+		return orderDao.findOneOrder(id);
+	}
+
 
 }

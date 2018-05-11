@@ -8,4 +8,6 @@ public interface OrderService {
 
 	List<Order> findAll(Long id);
 
+	Order orderDetails(Long id);
+
 }
