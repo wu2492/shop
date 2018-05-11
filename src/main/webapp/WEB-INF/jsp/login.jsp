@@ -22,7 +22,7 @@
    <a href="index.jsp" style="color:#FD7306;">首页</a>
    <a href="buy.jsp">买家</a>
    <a href="sell.jsp">卖家</a>
-   <a href="vip.jsp">会员中心</a>
+   <a href="${contextPath}/vip">会员中心</a>
    <a href="xuanshang.jsp">悬赏榜</a>
    <a href="luntan.jsp" class="luntan">论坛</a>
    <a href="help.jsp">帮助</a>
