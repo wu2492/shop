@@ -53,6 +53,46 @@ $(function(){
 		})
 	//.upd,.add
 	$(".upd,.add,.vipUp").click(function(){
+		if(this.className=="green upd"){
+			// 获取meta中的csrf token
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			// 将token作为请求头发送
+			var headers = {};
+			headers[header] = token;
+			
+			
+//			console.log('headers with csrf token: ', headers);
+			
+//			var param = {
+//					id:1,consignee:"张三",consigneePhone:"13085220233",
+//					region:"湖南",detailedAddres:"传说故事",postcode:"400000"
+//			};
+			$.ajax({
+				type:"POST",
+				headers: headers,
+				url:"/shop/updateAddres",
+				contentType:"application/json; charset=UTF-8",
+				data: JSON.stringify({id:$(this).attr("value")}),
+				dataType:"JSON",
+				success:function(dataStr){
+					console.log($("input"));
+					$("input[name='detailedAddres']").val(dataStr.detailedAddres);
+					$("input[name='postcode']").val(dataStr.postcode);
+					$("input[name='consignee']").val(dataStr.consignee);
+					$("input[name='consigneePhone']").val(dataStr.consigneePhone);
+					$(".addres_id").remove();
+					$(".address2").append("<input type='hidden' name='id' class='addres_id' value='"+dataStr.id+"'/>");
+				}
+			});
+		}
+		if(this.className=="green add"){
+			$("input[name='detailedAddres']").val("");
+			$("input[name='postcode']").val("");
+			$("input[name='consignee']").val("");
+			$("input[name='consigneePhone']").val("");
+			$(".addres_id").remove();
+		}
 		$(".address").stop(true,true).slideDown();
 		})
 	//luntan

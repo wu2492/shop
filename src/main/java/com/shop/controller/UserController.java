@@ -61,7 +61,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/vip-update")
-	public String vipUpdate(@AuthenticationPrincipal(expression="user") User curUser,@ModelAttribute PersonalCenter personalCenter,String email){
+	public String vipUpdate(@AuthenticationPrincipal(expression="user") User curUser,
+			@ModelAttribute PersonalCenter personalCenter,String email){
 		personalCenter.setUser(curUser);
 		if(personalCenter.getPortrait().getSize()!=0){
 			try {

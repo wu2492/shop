@@ -5,17 +5,29 @@
 <mapper namespace="com.shop.dao.mapper.OrderMapper">
 	<select id="findAll" resultMap="detailsOrder">
 		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
-		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,p.id pro_id,p.name pro_name,p.print_url pro_print_url,
+		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,
+		
+    	ad.id addres_id,ad.consignee addres_consignee,ad.consignee_phone addres_consignee_phone,
+    	ad.region addres_region,ad.detailed_addres addres_detailed_addres,ad.postcode addres_postcode,
+    	
+    	p.id pro_id,p.name pro_name,p.print_url pro_print_url,
 		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
-		from shop_order o inner join pro p on o.pro_id= p.id
+		from shop_order o inner join shop_addres ad on o.addres_id = ad.id
+    	inner join pro p on o.pro_id= p.id
 		inner join pro_sort ps on p.sort_id = ps.id
 		where o.user_id=#{id}
 	</select>
 	<select id="findOneOrder" resultMap="detailsOrder">
 		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
-		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,p.id pro_id,p.name pro_name,p.print_url pro_print_url,
+		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,
+		
+    	ad.id addres_id,ad.consignee addres_consignee,ad.consignee_phone addres_consignee_phone,
+    	ad.region addres_region,ad.detailed_addres addres_detailed_addres,ad.postcode addres_postcode,
+    	
+   		p.id pro_id,p.name pro_name,p.print_url pro_print_url,
 		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
-		from shop_order o inner join pro p on o.pro_id= p.id
+		from shop_order o inner join shop_addres ad on o.addres_id = ad.id
+   		inner join pro p on o.pro_id= p.id
 		inner join pro_sort ps on p.sort_id = ps.id
 		where o.id = #{id}
 	</select>
@@ -28,7 +40,15 @@
 		<result property="paymentStatus" column="payment_status"/>
 		<result property="orderStatus" column="order_status"/>
 		<result property="merchant" column="order_merchant"/>
-		<association property="pro" javaType="com.shop.entiy.Pro">
+		<association property="addres" javaType="com.shop.entiy.Addres">
+		<id property="id" column="addres_id"/>
+		<result property="consignee" column="addres_consignee"/>
+		<result property="consigneePhone" column="addres_consignee_phone"/>
+		<result property="region" column="addres_region"/>
+		<result property="detailedAddres" column="addres_detailed_addres"/>
+		<result property="postcode" column="addres_postcode"/>
+		</association>
+		<collection property="pro" javaType="com.shop.entiy.Pro">
 			<id property="id" column="pro_id"/>
 			<result property="name" column="pro_name"/>
 			<result property="printUrl" column="pro_print_url"/>
@@ -38,7 +58,7 @@
 				<id property="id" column="pro_sort_id"/>
 				<result property="name" column="pro_sort_name"/>
 			</association>
-		</association>
+		</collection>
 	</resultMap>
 	
 </mapper>

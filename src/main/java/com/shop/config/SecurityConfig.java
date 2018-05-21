@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/admin/**").access("isFullyAuthenticated() and hasRole('ADMIN')")
-			.antMatchers("/assets/**", "/login","/product","/product-new").permitAll()
+			.antMatchers("/assets/**","/login").permitAll()
 			.antMatchers("/regist").anonymous()
 			.antMatchers("/**").authenticated()
 			

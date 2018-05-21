@@ -3,7 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.dao.mapper.UserMapper">
-
 	<insert id="regist">
 		insert into
 		shop_user(id,username,password,e_mail,phone,role_id)

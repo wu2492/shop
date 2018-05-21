@@ -12,74 +12,9 @@
 </head>
 
 <body>
- <div class="hrader" id="header">
-  <div class="top">
-   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
-   <a href="reg.jsp">注册</a>
-   <ul class="topNav">
-    <li><a href="order.jsp">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
-    <li class="kefus"><a href="#">联系客服</a></li>
-<li><a href="#" class="lan">中文</a></li>
-    <li><a href="#" class="lan">English</a></li>
-    <div class="clears"></div>
-   </ul><!--topNav/-->
-  </div><!--top/-->
- </div><!--hrader/-->
- <div class="mid">
-  <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
-  </h1>
-  <form action="#" method="get" class="subBox">
-   <div class="subBox2">
-    <input type="text" class="subText" />
-    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
-    <div class="hotci">
-    <a href="#">酷派大神</a>
-    <a href="#">三星s5</a>
-    <a href="#">诺基亚1020</a>
-    <a href="#">Iphone 6</a>
-    <a href="#">htc one</a>
-   </div><!--hotci/-->
-   </div><!--subBox2/-->
-  </form><!--subBox/-->
-  <div class="ding-gou">
-   <div class="ding">
-    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
-   </div><!--ding/-->
-   <div class="gou">
-    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
-   </div><!--gou/-->
-   <div class="clears"></div>
-  </div><!--ding-gou/-->
- </div><!--mid-->
- <div class="navBox navBg3">
-  <ul class="nav">
-   <li><a href="index.jsp">首页</a></li>
-   <li><a href="buy.jsp">买家</a></li>
-   <li><a href="sell.jsp">卖家</a></li>
-   <li class="navCur"><a href="vip.jsp">会员中心</a></li>
-   <li><a href="xuanshang.jsp">悬赏榜</a></li>
-   <li><a href="luntan.jsp" class="luntan">论坛</a></li>
-   <li><a href="help.jsp">帮助</a></li>
-   <div class="clears"></div>
-  </ul><!--nav/-->
- </div><!--navBox/-->
+ <jsp:include page="top.jsp" />
  <div class="vipBox">
-  <div class="vipLeft">
-   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
-   <h3 class="vipName">测试webqin</h3>
-   <ul class="buy-nav">
-    <li class="buy-nav1 buy-navCur"><a href="vip-sell.jsp">卖家中心</a></li>
-    <li class="buy-nav2"><a href="vip-product.jsp">发布产品</a></li>
-    <li class="buy-nav3"><a href="vip-prolist.jsp">产品列表</a></li>
-    <li class="buy-nav4"><a href="vip-dingzhi.jsp">定制服务</a></li>
-    <li class="buy-nav5"><a href="vip-pingjia.jsp">评价留言</a></li>
-    <li class="buy-nav6"><a href="vip-pwd.jsp">修改密码</a></li>
-    <li class="buy-nav7"><a href="vip-shou.jsp">售后管理</a></li>
-   </ul><!--buy-nav/-->
-  </div><!--vipLeft/-->
+   <jsp:include page="vip-left.jsp" />
   <div class="vipRight">
    <h2 class="vipTitle">卖家中心</h2>
    

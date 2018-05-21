@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.mapper.CarMapper">
+	<select id="findAll" resultMap="carDetails">
+		select c.id car_id,c.shop_count car_count,
+		p.id pro_id,p.name pro_name,p.print_url pro_print_url,p.price pro_price,p.describe pro_describe
+		from shop_car c inner join pro p on c.pro_id = p.id
+		where c.user_id = #{id}
+	</select>
+	
+	<select id="findOneCar" resultMap="carDetails">
+		select c.id car_id,c.shop_count car_count,
+		p.id pro_id,p.name pro_name,p.print_url pro_print_url,p.price pro_price,p.describe pro_describe
+		from shop_car c inner join pro p on c.pro_id = p.id
+		where c.user_id=#{userId} and c.pro_id = #{proId}
+	</select>
+	
+	
+	<update id="addCarCount">
+		update shop_car set shop_count = shop_count+1 
+		where user_id=#{userId} and pro_id = #{proId}
+	</update>
+	
+	<insert id="createCar">
+		insert into shop_car(id,user_id,pro_id,shop_count) 
+		values(seq_shop_car.nextval,#{userId},#{proId},1)
+	</insert>
+	
+		<delete id="deleteAllCar">
+		delete shop_car where user_id=#{userId}
+	</delete>
+	
+	<update id="minusCount">
+		update shop_car set shop_count = shop_count-1 
+		where id=#{carId}
+	</update>
+	
+	<select id="findIdOneCar" resultMap="carDetails">
+		select c.id car_id,c.shop_count car_count,
+		p.id pro_id,p.name pro_name,p.print_url pro_print_url,p.price pro_price,p.describe pro_describe
+		from shop_car c inner join pro p on c.pro_id = p.id
+		where c.id=#{carId}
+	</select>
+	
+	<delete id="deleteIdCar">
+		delete shop_car where id=#{carId}
+	</delete>
+	
+	<update id="addIdCarCount">
+		update shop_car set shop_count = shop_count+1 
+		where id=#{carId}
+	</update>
+	
+	<resultMap type="com.shop.entiy.Car" id="carDetails">
+		<id property="id" column="car_id"/>
+		<result property="count" column="car_count"/>
+		<association property="pro" javaType="com.shop.entiy.Pro">
+			<id property="id" column="pro_id"/>
+			<result property="name" column="pro_name"/>
+			<result property="printUrl" column="pro_print_url"/>
+			<result property="price" column="pro_price"/>
+			<result property="describe" column="pro_describe"/>
+		</association>
+	</resultMap>
+</mapper>

@@ -1,125 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
+<!-- 	把token放在meta中方便ajax获取 -->
+	<meta name="_csrf" content="${_csrf.token}"/>
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 </head>
 
 <body>
- <div class="hrader" id="header">
-  <div class="top">
-   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
-   <a href="reg.jsp">注册</a>
-   <ul class="topNav">
-    <li><a href="order.jsp">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.jsp">收藏夹</a></li>
-    <li class="kefus"><a href="#">联系客服</a></li>
-<li><a href="#" class="lan">中文</a></li>
-    <li><a href="#" class="lan">English</a></li>
-    <div class="clears"></div>
-   </ul><!--topNav/-->
-  </div><!--top/-->
- </div><!--hrader/-->
- <div class="mid">
-  <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
-  </h1>
-  <form action="#" method="get" class="subBox">
-   <div class="subBox2">
-    <input type="text" class="subText" />
-    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
-    <div class="hotci">
-    <a href="#">酷派大神</a>
-    <a href="#">三星s5</a>
-    <a href="#">诺基亚1020</a>
-    <a href="#">Iphone 6</a>
-    <a href="#">htc one</a>
-   </div><!--hotci/-->
-   </div><!--subBox2/-->
-  </form><!--subBox/-->
-  <div class="ding-gou">
-   <div class="ding">
-    <a href="order.jsp"><img src="images/dingdan.jpg" width="106" height="32" /></a>
-   </div><!--ding/-->
-   <div class="gou">
-    <a href="car.jsp"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
-   </div><!--gou/-->
-   <div class="clears"></div>
-  </div><!--ding-gou/-->
- </div><!--mid-->
- <div class="navBox navBg1">
-  <ul class="nav">
-   <li><a href="index.jsp">首页</a></li>
-   <li><a href="buy.jsp">买家</a></li>
-   <li><a href="sell.jsp">卖家</a></li>
-   <li class="navCur"><a href="vip.jsp">会员中心</a></li>
-   <li><a href="xuanshang.jsp">悬赏榜</a></li>
-   <li><a href="luntan.jsp" class="luntan">论坛</a></li>
-   <li><a href="help.jsp">帮助</a></li>
-   <div class="clears"></div>
-  </ul><!--nav/-->
- </div><!--navBox/-->
+  <jsp:include page="top.jsp" />
  <div class="vipBox">
-  <div class="vipLeft">
-   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
-   <h3 class="vipName">测试webqin</h3>
-   <dl class="vipNav">
-    <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="${contextPath}/vipOrder">我的订单</a></dd>
-     <dd><a href="vipShoucang.jsp">收藏关注</a></dd>
-    <dt class="vip_2">账户设置</dt>
-     <dd><a href="vip.jsp">个人信息</a></dd>
-     <dd><a href="${contextPath}/updatePassword">密码修改</a></dd>
-     <dd class="ddCur"><a href="vipAddress.jsp">收货地址</a></dd>
-     <dd><a href="vipXiaofei.jsp">消费记录</a></dd>
-    <dt class="vip_3">客户服务</dt>
-     <dd><a href="vipQuxiao.jsp">取消订单/退货</a></dd>
-     
-     <dd><a href="vipTousu.jsp">我的投诉</a></dd>
-   </dl><!--vipNav/-->
-  </div><!--vipLeft/-->
+   <jsp:include page="vipleft.jsp" />
   <div class="vipRight">
-   <h2 class="vipTitle">收货地址</h2>
+   <h2 class="vipTitle">收货地址   <span class="green add">[添加]</span></h2>
+
    
    <div class="address">
+   <form:form action="${contextPath}/vipAddress" method="post" class="address2">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="addList">
      <label><span class="red">* </span>选择地区:</label>
-     <select>
-      <option>请选择省</option>
+     <select name="region">
+      <option >请选择省</option>
+      <option >湖南</option>
      </select>
-     <select>
+     <select  name="region">
       <option>请选择市</option>
+      <option>长沙</option>
      </select>
-     <select>
-      <option>请选择地区</option>
+     <select name="region">
+      <option >请选择地区</option>
+      <option >开福</option>
      </select>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>详细地址:</label>
-     <input type="text" />
+     <input type="text" name="detailedAddres" class="addres_detailedAddres"/>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>邮政编码:</label>
-     <input type="text" />
+     <input type="text" name="postcode"/>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>收件人:</label>
-     <input type="text" />
+     <input type="text" name="consignee"/>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>手机号码:</label>
-     <input type="text" /> 或者固定电话 <input type="text" />
+     <input type="text" name="consigneePhone"/>
     </div><!--addList--> 
     <div class="addList2">
-     <input name="" value=" 确 认 " type="submit" class="submit" />
+     <input value="确 认 " type="submit" class="submit" />
     </div><!--addList2/-->
+    </form:form>
    </div><!--address/-->
    <table class="vipAdress">
     <tr>
@@ -130,21 +77,23 @@
      <th>电话/手机</th>
      <th>操作</th>
     </tr>
+    <c:forEach items="${address}" var="addres">
     <tr>
-     <td>张益达</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
+     <td>${addres.consignee}</td>
+     <td>${addres.region}</td>
+     <td>${addres.detailedAddres}</td>
+     <td>${addres.postcode}</td>
+     <td>${addres.consigneePhone}</td>
+     <td><span class="green upd" value="${addres.id}">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
-    <tr>
+    </c:forEach>
+    <%-- <tr>
      <td>张大炮</td>
      <td>上海 上海市 普陀区</td>
      <td>曹杨路1040弄中友大厦一号楼19楼</td>
      <td>200000</td>
      <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
+     <td><span class="green upd" name="${contextPath}/${id}">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
     <tr>
      <td>李思明</td>
@@ -177,7 +126,7 @@
      <td>200000</td>
      <td>13569888523</td>
      <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
+    </tr> --%>
    </table><!--vipAdress/-->
   </div><!--vipRight/-->
   <div class="clears"></div>
@@ -185,7 +134,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />
