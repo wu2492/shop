@@ -12,8 +12,10 @@
     	
     	p.id pro_id,p.name pro_name,p.print_url pro_print_url,
 		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
-		from shop_order o inner join shop_addres ad on o.addres_id = ad.id
-    	inner join pro p on o.pro_id= p.id
+		
+		from shop_order o inner join order_item oi on o.id = oi.order_id
+   		inner join shop_addres ad on o.addres_id = ad.id
+    	inner join pro p on oi.pro_id= p.id
 		inner join pro_sort ps on p.sort_id = ps.id
 		where o.user_id=#{id}
 	</select>
@@ -24,10 +26,12 @@
     	ad.id addres_id,ad.consignee addres_consignee,ad.consignee_phone addres_consignee_phone,
     	ad.region addres_region,ad.detailed_addres addres_detailed_addres,ad.postcode addres_postcode,
     	
-   		p.id pro_id,p.name pro_name,p.print_url pro_print_url,
+    	p.id pro_id,p.name pro_name,p.print_url pro_print_url,
 		p.price pro_price,p.describe pro_describe,ps.id pro_sort_id,ps.name pro_sort_name
-		from shop_order o inner join shop_addres ad on o.addres_id = ad.id
-   		inner join pro p on o.pro_id= p.id
+		
+		from shop_order o inner join order_item oi on o.id = oi.order_id
+   		inner join shop_addres ad on o.addres_id = ad.id
+    	inner join pro p on oi.pro_id= p.id
 		inner join pro_sort ps on p.sort_id = ps.id
 		where o.id = #{id}
 	</select>
