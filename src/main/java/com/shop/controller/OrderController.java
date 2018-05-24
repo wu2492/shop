@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shop.entiy.Order;
 import com.shop.entiy.User;
@@ -19,10 +20,15 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
+	
+//	@Autowired
+//	private CarService  carService;
+	
 	//跳转到订单页面
 	@RequestMapping(method=RequestMethod.GET,value="/vipOrder")
 	public String vipOrder(@AuthenticationPrincipal(expression="user") User curUser,Model model){
 		List<Order> orders = orderService.findAll(curUser.getId());
+		System.err.println(orders);
 		model.addAttribute("orders", orders);
 		return "vipOrder";
 	}
@@ -33,5 +39,23 @@ public class OrderController {
 		model.addAttribute("order", order);
 		return "vipXiaofei";
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/createOrder")
+	public String createOrder(@AuthenticationPrincipal(expression="user") User curUser,
+			@RequestParam String ids,@RequestParam String addresId,Model model){
+//		List<Car> cars = carService.findIdsCar(ids);
+//		model.addAttribute("cars", cars);
+//		model.addAttribute("addresId", addresId);
+		
+		Order order = orderService.createOrder(curUser,ids,addresId);
+		model.addAttribute("order", order);
+		return "success";
+	}
+	@RequestMapping(method=RequestMethod.GET,value="/orderPay/{id}")
+	public String orderPay(@PathVariable Long id){
+		orderService.orderPay(id);
+		return "redirect:/prolist";
+	}
+	
 	
 }

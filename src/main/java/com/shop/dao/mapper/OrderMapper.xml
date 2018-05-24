@@ -5,7 +5,7 @@
 <mapper namespace="com.shop.dao.mapper.OrderMapper">
 	<select id="findAll" resultMap="detailsOrder">
 		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
-		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,
+		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,oi.count order_count,
 		
     	ad.id addres_id,ad.consignee addres_consignee,ad.consignee_phone addres_consignee_phone,
     	ad.region addres_region,ad.detailed_addres addres_detailed_addres,ad.postcode addres_postcode,
@@ -21,7 +21,7 @@
 	</select>
 	<select id="findOneOrder" resultMap="detailsOrder">
 		select o.id order_id,o.order_number order_number,o.order_time order_time,o.payment_mode payment_mode,
-		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,
+		o.payment_status payment_status,o.order_status order_status,o.merchant order_merchant,oi.count order_count,
 		
     	ad.id addres_id,ad.consignee addres_consignee,ad.consignee_phone addres_consignee_phone,
     	ad.region addres_region,ad.detailed_addres addres_detailed_addres,ad.postcode addres_postcode,
@@ -44,17 +44,18 @@
 		<result property="paymentStatus" column="payment_status"/>
 		<result property="orderStatus" column="order_status"/>
 		<result property="merchant" column="order_merchant"/>
+		<result property="count" column="order_count"/>
 		<association property="addres" javaType="com.shop.entiy.Addres">
-		<id property="id" column="addres_id"/>
-		<result property="consignee" column="addres_consignee"/>
-		<result property="consigneePhone" column="addres_consignee_phone"/>
-		<result property="region" column="addres_region"/>
-		<result property="detailedAddres" column="addres_detailed_addres"/>
-		<result property="postcode" column="addres_postcode"/>
+			<id property="id" column="addres_id"/>
+			<result property="consignee" column="addres_consignee"/>
+			<result property="consigneePhone" column="addres_consignee_phone"/>
+			<result property="region" column="addres_region"/>
+			<result property="detailedAddres" column="addres_detailed_addres"/>
+			<result property="postcode" column="addres_postcode"/>
 		</association>
-		<collection property="pro" javaType="com.shop.entiy.Pro">
+		<collection property="pros" ofType="com.shop.entiy.Pro">
 			<id property="id" column="pro_id"/>
-			<result property="name" column="pro_name"/>
+			 <result property="name" column="pro_name"/>
 			<result property="printUrl" column="pro_print_url"/>
 			<result property="price" column="pro_price"/>
 			<result property="describe" column="pro_describe"/>
@@ -62,7 +63,29 @@
 				<id property="id" column="pro_sort_id"/>
 				<result property="name" column="pro_sort_name"/>
 			</association>
-		</collection>
+		</collection> 
 	</resultMap>
 	
+	<insert id="createOrder">
+		<selectKey keyProperty="id" resultType="long" order="BEFORE">
+       		select seq_shop_order.nextval from dual
+   		</selectKey> 
+   		
+		insert into shop_order(
+			id,order_number,order_time,payment_mode,
+			payment_status,order_status,merchant,user_id,addres_id)
+		values(
+			#{id},
+			#{orderNumber},#{orderTime},#{paymentMode},
+			#{paymentStatus},#{orderStatus},#{merchant},#{user.id},#{addres.id})
+	</insert>
+	
+	<insert id="createOrderItem">
+		insert into order_item(order_id,pro_id,count) 
+		values(#{orderId},#{proId},#{count})
+	</insert>
+	<update id="orderPay">
+		 update shop_order set payment_status = 1 
+		 where id=#{id}
+	</update>
 </mapper>

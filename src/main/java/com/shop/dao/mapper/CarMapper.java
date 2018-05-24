@@ -26,4 +26,6 @@ public interface CarMapper {
 
 	Car findIdOneCar(Long carId);
 
+	List<Car> findIdsCar(@Param("carIds") String carIds);
+
 }

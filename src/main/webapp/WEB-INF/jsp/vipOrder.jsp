@@ -5,6 +5,7 @@
 	
 	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
 	
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,16 +34,21 @@
      
       <td>
       	<c:forEach items="${order.pros}" var="pro">
-      <img src="${contextPath}/customer-pictures/${pro.portraitUrl}" width="60" height="55"/>
+      		<img src="${contextPath}/customer-pictures/${pro.printUrl}" width="60" height="55"/>
       	</c:forEach>
      </td>
       <td>${order.merchant}</td>
-      <td>${order.pro.price}<br/>
+      <td>
+      <c:set var="proMoney" value="0"></c:set>
+      <c:forEach items="${order.pros}" var="pro">
+     	 ${proMoney+pro.price*order.count}
+      </c:forEach>
+      <br/>
       <c:choose>
-      	<c:when test=" ${order.paymentMode == 0}">未选择</c:when>
-      	<c:when test=" ${order.paymentMode == 1}">支付宝支付</c:when>
-      	<c:when test=" ${order.paymentMode == 2}">微信支付</c:when>
-      	<c:when test=" ${order.paymentMode == 3}">银行卡支付</c:when>
+      	<c:when test="${order.paymentMode == 0}">未选择支付方式</c:when>
+      	<c:when test="${order.paymentMode == 1}">支付宝支付</c:when>
+      	<c:when test="${order.paymentMode == 2}">微信支付</c:when>
+      	<c:when test="${order.paymentMode == 3}">银行卡支付</c:when>
       </c:choose>
      </td>
       <td>${order.orderTime}</td>

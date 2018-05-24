@@ -12,14 +12,9 @@ $(function(){
 			type:"GET",
 			data:{id:id1,count:$(".shuliang").val()},
 			success:function(carStr){
-				console.log($("strong.red[name='"+id1+"']")[0]);
-				if(carStr==null){
-					$("car"+id1).remove();
+				if(!carStr){
+					$(".car"+id1).remove();
 				}else{
-					console.log($(".shuliang").val());
-					console.log(parseInt(($("strong.red[name='"+id1+"']")[0].innerHTML).substr(1)));
-//					console.log($("."+id1+"").val());
-					
 					$(".shuliang[name='"+id1+"']").val(carStr.count);
 					$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(carStr.pro.price * carStr.count);
 					$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-carStr.pro.price);
@@ -42,9 +37,15 @@ $(function(){
 			data:JSON.stringify({id:id1}),
 			dataType:"JSON",
 			success:function(carStr){
-				$(".shuliang[name='"+id1+"']").val(carStr.count);
-				$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(carStr.pro.price * carStr.count);
-				$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+carStr.pro.price);
+				if($(".shuliang[name='"+id1+"']")){
+					$(".shuliang[name='"+id1+"']").val(carStr.count);
+				}
+				if($("strong.red[name='"+id1+"']")[0]){
+					$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(carStr.pro.price * carStr.count);
+				}
+				if($("strong.red[name='all']")[0]){
+					$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+carStr.pro.price);
+				}
 			}
 		});
 	});
@@ -56,7 +57,10 @@ $(function(){
 			type:"GET",
 			data:{id:id1},
 			success:function(carStr){
-				$("car"+id1).remove();
+				$("strong.red[name='all']")[0].innerHTML=
+					"￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-
+							parseInt(($("strong.red[name='"+id1+"']")[0].innerHTML).substr(1)));
+				$(".car"+id1).remove();
 			}
 		});
 	});
@@ -67,6 +71,7 @@ $(function(){
 			type:"GET",
 			success:function(carStr){
 				$("tr[name='car']").remove();
+				$("strong.red[name='all']")[0].innerHTML="￥ 0.00";
 			}
 		});
 	});
@@ -82,4 +87,26 @@ $(function(){
 		}
 		});
 	});
+	
+
+	$(".shuliang").change(function(){
+	});
+	
+	$(".jie_2").click(function(){
+		var arr = "";
+		$("input[name='carId']:checked").each(function(index){
+			arr += ","+$(this).val();
+		});
+		var addresId = $("input[name='addres']:checked").attr("value");
+		if(arr!=""){
+			if(addresId){
+				$(this).attr("href","/shop/createOrder?ids="+arr.substr(1)+"&addresId="+addresId);
+			}else{
+				alert("请选择地址");
+			}
+		}else{
+			alert("请选择要购买的商品");
+		}
+	});
+	
 });

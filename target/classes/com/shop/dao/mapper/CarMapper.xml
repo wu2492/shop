@@ -17,6 +17,12 @@
 		where c.user_id=#{userId} and c.pro_id = #{proId}
 	</select>
 	
+	<select id="findIdsCar" resultMap="carDetails">
+		select c.id car_id,c.shop_count car_count,
+		p.id pro_id,p.name pro_name,p.print_url pro_print_url,p.price pro_price,p.describe pro_describe
+		from shop_car c inner join pro p on c.pro_id = p.id
+		where c.id in ${carIds}
+	</select>
 	
 	<update id="addCarCount">
 		update shop_car set shop_count = shop_count+1 

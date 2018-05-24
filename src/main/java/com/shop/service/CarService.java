@@ -24,4 +24,6 @@ public interface CarService {
 
 	void addCarCount(Long userId, Long proId);
 
+	List<Car> findIdsCar(String carIds);
+
 }

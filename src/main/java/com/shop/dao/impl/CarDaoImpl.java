@@ -13,52 +13,57 @@ import com.shop.entiy.Car;
 public class CarDaoImpl implements CarDao {
 	
 	@Autowired
-	private CarMapper CarMapper;
+	private CarMapper carMapper;
 	
 	@Override
 	public List<Car> findAll(Long id) {
-		return CarMapper.findAll(id);
+		return carMapper.findAll(id);
 	}
 
 	@Override
 	public void minusCount(Long carId) {
-		CarMapper.minusCount(carId);		
+		carMapper.minusCount(carId);		
 	}
 
 	@Override
 	public Car findOneCar(Long userId, Long proId) {
-		return CarMapper.findOneCar(userId,proId);		
+		return carMapper.findOneCar(userId,proId);		
 	}
 
 	@Override
 	public void deleteCar(Long carId) {
-		CarMapper.deleteIdCar(carId);				
+		carMapper.deleteIdCar(carId);				
 	}
 
 	@Override
 	public void addCarCount(Long userId, Long proId) {
-		CarMapper.addCarCount(userId,proId);		
+		carMapper.addCarCount(userId,proId);		
 	}
 
 	@Override
 	public void deleteAllCar(Long userId) {
-		CarMapper.deleteAllCar(userId);	
+		carMapper.deleteAllCar(userId);	
 	}
 
 	@Override
 	public void createCar(Long userId, Long proId) {
 		System.err.println("userId:"+userId+",proId:"+proId);
-		CarMapper.createCar(userId,proId);	
+		carMapper.createCar(userId,proId);	
 	}
 
 	@Override
 	public Car findOneCar(Long carId) {
-		return CarMapper.findIdOneCar(carId);
+		return carMapper.findIdOneCar(carId);
 	}
 
 	@Override
 	public void addCarCount(Long carId) {
-		CarMapper.addIdCarCount(carId);	
+		carMapper.addIdCarCount(carId);	
+	}
+
+	@Override
+	public List<Car> findIdsCar(String carIds) {
+		return carMapper.findIdsCar(carIds);
 	}
 
 }

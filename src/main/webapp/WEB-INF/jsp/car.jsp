@@ -32,7 +32,7 @@
     <c:forEach items="${address}" var="addres">
 	    <tr>
 	     <td width="30%">
-	      <input type="radio" name="addres"/> ${addres.consignee}
+	      <input type="radio" name="addres" value="${addres.id}"/> ${addres.consignee}
 	     </td>
 	     <td width="50%">
 	    ${addres.region},${addres.detailedAddres},${addres.postcode},${addres.consigneePhone}
@@ -94,7 +94,7 @@
     </tr>
     <c:forEach items="${cars}" var="car">
    
-	    <tr>
+	    <tr class="car${car.id}">
 	     <td><input type="checkbox" /></td>
 	     <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
 	      <img src="${contextPath}/customer-pictures/${car.pro.printUrl}" width="20" height="15" style="position:relative;top:2px;" />
@@ -160,7 +160,7 @@
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="index.jsp" class="jie_1">继续购物&gt;&gt;</a>
-    <a href="order.jsp" class="jie_2">立即结算&gt;&gt;</a>
+    <a class="jie_2" name="${contextPath}/createOrder">立即结算&gt;&gt;</a>
     <div class="clears"></div>
    </div><!--jiesuan/-->
    <div class="clears"></div>

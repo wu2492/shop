@@ -20,9 +20,11 @@ public interface CarDao {
 
 	void createCar(Long userId, Long proId);
 	
-	Car findOneCar(Long userId, Long carId);
+	Car findOneCar(Long userId, Long proId);
 	
 	void addCarCount(Long userId, Long proId);
+
+	List<Car> findIdsCar(String carIds);
 
 
 }

@@ -59,4 +59,9 @@ public class CarServiceImpl implements CarService {
 		carDao.addCarCount(carId);			
 	}
 
+	@Override
+	public List<Car> findIdsCar(String carIds) {
+		return carDao.findIdsCar(carIds);
+	}
+
 }

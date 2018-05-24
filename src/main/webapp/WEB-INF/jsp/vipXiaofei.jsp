@@ -30,11 +30,20 @@
     </tr>
     <tr>
      <th>商品名称</th>
-     <td>${order.pro.name}</td>
+     <td>
+      <c:forEach items="${order.pros}" var="pro">
+     ${pro.name}<br/>
+     </c:forEach>
+     </td>
     </tr>
     <tr>
      <th>订单价钱</th>
-     <td>￥${order.pro.price}</td>
+     <c:set var="proMoney" value="0"></c:set>
+     <td>￥
+     <c:forEach items="${order.pros}" var="pro">
+     ${proMoney + pro.price*order.count}
+     </c:forEach>
+     </td>
     </tr>
     <tr>
      <th>订单信息</th>
@@ -49,10 +58,10 @@
      <th>支付方式</th>
      <td>
 	  <c:choose>
-      	<c:when test=" ${order.paymentMode == 0}">未选择</c:when>
-      	<c:when test=" ${order.paymentMode == 1}">支付宝支付</c:when>
-      	<c:when test=" ${order.paymentMode == 2}">微信支付</c:when>
-      	<c:when test=" ${order.paymentMode == 3}">银行卡支付</c:when>
+      	<c:when test="${order.paymentMode == 0}">未选择</c:when>
+      	<c:when test="${order.paymentMode == 1}">支付宝支付</c:when>
+      	<c:when test="${order.paymentMode == 2}">微信支付</c:when>
+      	<c:when test="${order.paymentMode == 3}">银行卡支付</c:when>
       </c:choose>
 	</td>
     </tr>

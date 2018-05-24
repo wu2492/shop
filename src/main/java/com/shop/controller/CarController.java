@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.entiy.Addres;
 import com.shop.entiy.Car;
-import com.shop.entiy.Pro;
 import com.shop.entiy.User;
 import com.shop.service.AddresService;
 import com.shop.service.CarService;
@@ -89,5 +88,6 @@ public class CarController {
 		}
 		return "car";
 	}
+	public void aaa(){}
 
 }

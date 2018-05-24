@@ -95,7 +95,9 @@ user_id number(16) references shop_user(id)
 				+ region + ", detailedAddres=" + detailedAddres + ", postcode=" + postcode + ", user=" + user + "]";
 	}
 
+	public Addres(Long id) {
+		this.id = id;
+	}
 
-	
 	
 }

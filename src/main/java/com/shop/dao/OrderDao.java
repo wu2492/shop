@@ -10,4 +10,11 @@ public interface OrderDao {
 
 	Order findOneOrder(Long id);
 
+	void createOrder(Order order);
+
+	void createOrderItem(Long proId, Long orderId, Integer count);
+
+	void orderPay(Long id);
+
+
 }

@@ -24,4 +24,20 @@ public class OrderDaoImpl implements OrderDao {
 		return orderMapper.findOneOrder(id);
 	}
 
+	@Override
+	public void createOrder(Order order) {
+		orderMapper.createOrder(order);
+	}
+
+	@Override
+	public void createOrderItem(Long proId, Long orderId, Integer count) {
+		orderMapper.createOrderItem(proId,orderId,count);
+	}
+
+	@Override
+	public void orderPay(Long id) {
+		orderMapper.orderPay(id);		
+	}
+
+
 }
