@@ -32,7 +32,7 @@
     <c:forEach items="${address}" var="addres">
 	    <tr>
 	     <td width="30%">
-	      <input type="radio" name="addres" value="${addres.id}"/> ${addres.consignee}
+	      <input type="radio" name="addresId" value="${addres.id}"/> ${addres.consignee}
 	     </td>
 	     <td width="50%">
 	    ${addres.region},${addres.detailedAddres},${addres.postcode},${addres.consigneePhone}
@@ -102,7 +102,7 @@
 	     </td>
 	    </tr>
 	    <tr class="car${car.id}" name="car">
-	     <td><input type="checkbox" name="carId" value="${car.id}"/></td>
+	     <td><input type="checkbox" name="carIds" value="${car.id}"/></td>
 	     <td>
 	      <dl>
 	       <dt><a href="proinfo.jsp"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
@@ -160,7 +160,7 @@
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="index.jsp" class="jie_1">继续购物&gt;&gt;</a>
-    <a class="jie_2" name="${contextPath}/createOrder">立即结算&gt;&gt;</a>
+    <a class="jie_2">立即结算&gt;&gt;</a>
     <div class="clears"></div>
    </div><!--jiesuan/-->
    <div class="clears"></div>
@@ -229,5 +229,11 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ <form action="${contextPath}/createOrder" method="post" 
+ 	id="batch-submit-from" style="display: note;" >
+ 	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+ 	  <input type="text" />
+ </form>
+ 
 </body>
 </html>

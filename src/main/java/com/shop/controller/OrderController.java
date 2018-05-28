@@ -40,14 +40,21 @@ public class OrderController {
 		return "vipXiaofei";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/createOrder")
+	@RequestMapping(method=RequestMethod.POST,value="/createOrder")
 	public String createOrder(@AuthenticationPrincipal(expression="user") User curUser,
-			@RequestParam String ids,@RequestParam String addresId,Model model){
+			@RequestParam(name="carIds") List<Long> carIds,@RequestParam Long addresId,Model model){
 //		List<Car> cars = carService.findIdsCar(ids);
 //		model.addAttribute("cars", cars);
 //		model.addAttribute("addresId", addresId);
 		
-		Order order = orderService.createOrder(curUser,ids,addresId);
+		Order order = orderService.createOrder(curUser,carIds,addresId);
+		model.addAttribute("order", order);
+		return "success";
+	}
+	@RequestMapping(method=RequestMethod.GET,value="/success/{id}")
+	public String success(@AuthenticationPrincipal(expression="user") User curUser,
+			@PathVariable Long id,Model model){
+		Order order = orderService.findOneOrder(id);
 		model.addAttribute("order", order);
 		return "success";
 	}

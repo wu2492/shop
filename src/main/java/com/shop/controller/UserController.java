@@ -32,6 +32,10 @@ public class UserController {
 	public String login(){
 		return "login";
 	}
+	@RequestMapping(method=RequestMethod.GET,value="/index")
+	public String index(){
+		return "index";
+	}
 	@RequestMapping(method=RequestMethod.GET,value="/regist")
 	public String reg(@ModelAttribute User user){
 		return "reg";

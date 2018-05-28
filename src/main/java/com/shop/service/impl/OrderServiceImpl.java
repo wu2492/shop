@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Order createOrder(User user, String carIds, String addresId) {
+	public Order createOrder(User curUser, List<Long> carIds, Long addresId) {
 		long timeMillis = System.currentTimeMillis();
 		Order order = new Order();
 		order.setOrderNumber("ID"+timeMillis);
@@ -46,13 +46,13 @@ public class OrderServiceImpl implements OrderService {
 		order.setOrderStatus(0);
 		order.setMerchant("商城自营");
 		
-		order.setAddres(new Addres(Long.parseLong(addresId)));
-		order.setUser(user);
+		order.setAddres(new Addres(addresId));
+		order.setUser(curUser);
 		
 		orderDao.createOrder(order);
 		
-		for (String carId : carIds.split(",")) {
-			Car car = carDao.findOneCar(Long.parseLong(carId));
+		for (Long carId : carIds) {
+			Car car = carDao.findOneCar(carId);
 			orderDao.createOrderItem(car.getPro().getId(),order.getId(),car.getCount());
 			carDao.deleteCar(car.getId());
 		}
@@ -63,6 +63,13 @@ public class OrderServiceImpl implements OrderService {
 	public void orderPay(Long id) {
 		orderDao.orderPay(id);
 	}
+
+	@Override
+	public Order findOneOrder(Long orderId) {
+		return orderDao.findOneOrder(orderId);
+	}
+
+
 
 
 }

@@ -41,7 +41,7 @@
    </div><!--loginLeft/-->
    <div class="loginRight">
    
-    <form class="login" action="#" method="post">
+    <form class="login" action="" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
      <label>邮箱/用户名/已验证手机</label>
      <input type="text" class="loginName" id="username" name="username"/>

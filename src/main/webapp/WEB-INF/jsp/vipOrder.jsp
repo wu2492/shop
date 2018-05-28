@@ -54,7 +54,7 @@
       <td>${order.orderTime}</td>
       <td>
       <c:choose>
-      	<c:when test="${order.paymentStatus==0}"><a href="success.jsp"><strong>未支付</strong></a></c:when>
+      	<c:when test="${order.paymentStatus==0}"><a href="${contextPath}/orderPay/${order.id}"><strong>未支付</strong></a></c:when>
       	<c:when test="${order.paymentStatus==1}"><strong>已支付</strong></c:when>
       </c:choose>
       

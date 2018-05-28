@@ -21,7 +21,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
+  <a href="${contextPath}/index"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -41,20 +41,20 @@
     <a href="${contextPath}/vipOrder"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="${contextPath}/car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
  <div class="navBox navBg1">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
+   <li><a href="${contextPath}/index">首页</a></li>
+   <li><a href="${contextPath}/buy">买家</a></li>
+   <li><a href="${contextPath}/sell">卖家</a></li>
    <li><a href="${contextPath}/vip">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
+   <li><a href="${contextPath}/xuanshang">悬赏榜</a></li>
    <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li><a href="help.html">帮助</a></li>
+   <li><a href="${contextPath}/help">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->

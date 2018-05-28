@@ -11,8 +11,10 @@ public interface OrderService {
 
 	Order orderDetails(Long id);
 
-	Order createOrder(User curUser, String proIds, String addresId);
-
 	void orderPay(Long id);
+
+	Order findOneOrder(Long orderId);
+
+	Order createOrder(User curUser, List<Long> carIds, Long addresId);
 
 }

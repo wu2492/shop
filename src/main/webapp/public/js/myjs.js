@@ -8,9 +8,11 @@ $(function(){
 	$(".jian").click(function(){
 		var id1 = $(this).attr("name");
 		$.ajax({
-			url:"/shop/minus",
-			type:"GET",
-			data:{id:id1,count:$(".shuliang").val()},
+			url:"minus",
+			headers:headers,
+			type:"POST",
+			contentType:"application/json; charset=UTF-8",
+			data:JSON.stringify({id:id1,count:$(".shuliang").val()}),
 			success:function(carStr){
 				if(!carStr){
 					$(".car"+id1).remove();
@@ -30,7 +32,7 @@ $(function(){
 	$(".jia").click(function(){
 		var id1 = $(this).attr("name");
 		$.ajax({
-			url:"/shop/addCarCount",
+			url:"addCarCount",
 			headers:headers,
 			type:"POST",
 			contentType:"application/json; charset=UTF-8",
@@ -53,9 +55,11 @@ $(function(){
 	$(".green").click(function(){
 		var id1 = $(this).attr("name");
 		$.ajax({
-			url:"/shop/deleteCar",
-			type:"GET",
-			data:{id:id1},
+			url:"deleteCar",
+			headers:headers,
+			contentType:"application/json; charset=UTF-8",
+			type:"POST",
+			data:JSON.stringify({id:id1}),
 			success:function(carStr){
 				$("strong.red[name='all']")[0].innerHTML=
 					"￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-
@@ -67,7 +71,7 @@ $(function(){
 	
 	$(".shanchu").click(function(){
 		$.ajax({
-			url:"/shop/deleteAllCar",
+			url:"deleteAllCar",
 			type:"GET",
 			success:function(carStr){
 				$("tr[name='car']").remove();
@@ -79,17 +83,19 @@ $(function(){
 	$(".jiaruCar").click(function(){
 		var proId = $(this).attr("name");
 		$.ajax({
-			url:"/shop/addCar",
-			type:"GET",
-			data:{id:proId},
+			url:"addCar",
+			headers:headers,
+			contentType:"application/json; charset=UTF-8",
+			type:"POST",
+			data:JSON.stringify({id:proId}),
 			success:function(carStr){
 			alert("添加成功");
-		}
+			}
 		});
 	});
 	
 
-	$(".shuliang").change(function(){
+	/*$(".shuliang").change(function(){
 	});
 	
 	$(".jie_2").click(function(){
@@ -108,5 +114,23 @@ $(function(){
 			alert("请选择要购买的商品");
 		}
 	});
+	
+	$(".vipNav > dd").click(function(){
+		console.log($(this).attr("class","aa"));
+	});*/
+	$(".jie_2").click(function(){
+		var ids = $("input[type='radio']:checked");
+		var id1s = $("input[type='checkbox'][name='carIds']:checked");
+		if(ids.length>0){
+			$("#batch-submit-from").append(ids);
+			$("#batch-submit-from").append(id1s).submit();
+		}
+	});
+	
+	$(".vipNav > dd").click(function(){
+		console.log($(this).attr("class","aa"));
+	});
+	
+	
 	
 });

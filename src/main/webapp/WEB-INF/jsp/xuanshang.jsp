@@ -1,27 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+		
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 <!--瀑布流效果-->
 
-<script type="text/javascript" src="js/js/notification.js"></script>
-<script type="text/javascript" src="js/js/bigimg.js"></script>
-<script type="text/javascript" src="js/js/jquery.lazyload.min.js" ></script>
-<script type="text/javascript" src="js/js/blocksit.min.js"></script>
-<script type="text/javascript" src="js/js/pubu.js"></script>
-<link rel="stylesheet" href="css/css/bigimg.css" type="text/css"/>
-<link rel="stylesheet" href="css/css/pubu.css" type="text/css" media='screen'/>
+<script type="text/javascript" src="${contextPath}/assets/js/js/notification.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/bigimg.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery.lazyload.min.js" ></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/blocksit.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/pubu.js"></script>
+<link rel="stylesheet" href="${contextPath}/assets/css/css/bigimg.css" type="text/css"/>
+<link rel="stylesheet" href="${contextPath}/assets/css/css/pubu.css" type="text/css" media='screen'/>
 </head>
 
-<body style="background:url(images/bgg.jpg)">
- <div class="hrader" id="header" style="background:url(images/bgtouming.png);border:0;">
+<body style="background:url(${contextPath}/assets/images/bgg.jpg)">
+ <div class="hrader" id="header" style="background:url(${contextPath}/assets/images/bgtouming.png);border:0;">
   <div class="top" id="top">
    <a href="login.jsp" style="color:#C94E13;">请登录</a> 
    <a href="reg.jsp">注册</a>
@@ -38,7 +43,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo2.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo2.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2" id="subBox2">
@@ -55,10 +60,10 @@
   </form><!--subBox/-->
   <div class="ding-gou" id="ding-gou">
    <div class="ding">
-    <a href="order.jsp"><img src="images/tu1.gif" /> 我的订单</a>
+    <a href="order.jsp"><img src="${contextPath}/assets/images/tu1.gif" /> 我的订单</a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.jsp"><img src="images/tu2.gif" /> 去购物车结算</a>
+    <a href="car.jsp"><img src="${contextPath}/assets/images/tu2.gif" /> 去购物车结算</a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
@@ -78,7 +83,7 @@
  <div class="xuanshang">
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -96,7 +101,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan1.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan1.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -114,7 +119,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan2.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan2.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -132,7 +137,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan3.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan3.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -150,7 +155,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -168,7 +173,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan1.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan1.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -186,7 +191,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan2.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan2.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -204,7 +209,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan3.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan3.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -222,7 +227,7 @@
   </div><!--xuanBox/-->
   <div class="xuanBox">
    <dl>
-    <dt><a href="#"><img src="images/xuan3.gif" /></a></dt>
+    <dt><a href="#"><img src="${contextPath}/assets/images/xuan3.gif" /></a></dt>
     <dd>
      <h3>星星星</h3>
      <strong>地区：</strong>上海<br />
@@ -241,10 +246,10 @@
   
   <div class="clearfix"></div>
  </div><!--xuanshang/-->
- <div class="footBox" style="background:url(images/bgtouming.png);border:0;">
+ <div class="footBox" style="background:url(${contextPath}/assets/images/bgtouming.png);border:0;">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.png" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.png" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

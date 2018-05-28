@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		
+		<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+		
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 </head>
 
@@ -17,17 +22,17 @@
   <div class="banLeft">
    <div class="focus">
     <ul class="rslides f426x240">
-        <li><a href="#"><img src="images/banner.jpg" width="750" height="300"  /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" width="750" height="300"  /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
     </ul>
    </div><!--focus/-->
   </div><!--banLeft/-->
   <div class="banRight">
-   <img src="images/xinpin.jpg" width="195" height="57" />
-   <div class="newPhone"><img src="images/newphone.jpg" width="87" height="163" /></div>
+   <img src="${contextPath}/assets/images/xinpin.jpg" width="195" height="57" />
+   <div class="newPhone"><img src="${contextPath}/assets/images/newphone.jpg" width="87" height="163" /></div>
    <div class="phonePar">
     <span>华为荣耀6 H60-L01 移动4G</span><br />
     <strong class="cheng">￥2099</strong> <span class="hui">￥3099</span>
@@ -45,7 +50,7 @@
   </ul><!--proSelect/-->
   <div class="sells">
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -61,7 +66,7 @@
     <div class="clears"></div>
    </dl>
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -77,7 +82,7 @@
     <div class="clears"></div>
    </dl>
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -93,7 +98,7 @@
     <div class="clears"></div>
    </dl>
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -109,7 +114,7 @@
     <div class="clears"></div>
    </dl>
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -125,7 +130,7 @@
     <div class="clears"></div>
    </dl>
    <dl>
-    <dt><a href="buyinfo.jsp"><img src="images/sell.jpg" width="140" height="140" /></a></dt>
+    <dt><a href="buyinfo.jsp"><img src="${contextPath}/assets/images/sell.jpg" width="140" height="140" /></a></dt>
     <dd>
      <h3><a href="buyinfo.jsp">三星手机 S5SM-G9006V (闪耀白)</a></h3>
      <h4>国行正品，机打发票，延长一年保修！S5联通版，防水防尘加指纹机密，机皇就是这么拽！</h4>
@@ -148,7 +153,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

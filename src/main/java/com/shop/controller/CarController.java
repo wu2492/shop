@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.entiy.Addres;
 import com.shop.entiy.Car;
+import com.shop.entiy.Pro;
 import com.shop.entiy.User;
 import com.shop.service.AddresService;
 import com.shop.service.CarService;
@@ -36,14 +37,14 @@ public class CarController {
 		return "car";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/minus")
+	@RequestMapping(method=RequestMethod.POST,value="/minus")
 	public @ResponseBody
-	Car minus(@AuthenticationPrincipal(expression="user") User curUser,@RequestParam Long id,@RequestParam Integer count){
-		if(count<=1){
-			carService.deleteCar(id);
+	Car minus(@AuthenticationPrincipal(expression="user") User curUser,@RequestBody Car car){
+		if(car.getCount()<=1){
+			carService.deleteCar(car.getId());
 		}else
-			carService.minusCount(id);
-		return carService.findOneCar(id);
+			carService.minusCount(car.getId());
+		return carService.findOneCar(car.getId());
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/addCarCount")
@@ -54,26 +55,26 @@ public class CarController {
 		return carService.findOneCar(car.getId());
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/deleteCar")
+	@RequestMapping(method=RequestMethod.POST,value="/deleteCar")
 	public @ResponseBody
-	Car deleteCar(@AuthenticationPrincipal(expression="user") User curUser,@RequestParam Long id){
-		carService.deleteCar(id);
+	Car deleteCar(@AuthenticationPrincipal(expression="user") User curUser,@RequestBody Car car){
+		carService.deleteCar(car.getId());
 		return new Car();
 	}
-	@RequestMapping(method=RequestMethod.GET,value="/deleteAllCar")
+	@RequestMapping(method=RequestMethod.POST,value="/deleteAllCar")
 	public String deleteAllCar(@AuthenticationPrincipal(expression="user") User curUser){
 		carService.deleteAllCar(curUser.getId());
 		return "car";
 	}
-	@RequestMapping(method=RequestMethod.GET,value="/addCar")
+	@RequestMapping(method=RequestMethod.POST,value="/addCar")
 	public @ResponseBody
-	Car addCar(@AuthenticationPrincipal(expression="user") User curUser,@RequestParam Long id){
-		Car car = carService.findOneCar(curUser.getId(),id);
+	Car addCar(@AuthenticationPrincipal(expression="user") User curUser,@RequestBody Pro pro){
+		Car car = carService.findOneCar(curUser.getId(),pro.getId());
 		System.out.println(car);
 		if(car==null){
-			carService.createCar(curUser.getId(),id);
+			carService.createCar(curUser.getId(),pro.getId());
 		}else{
-			carService.addCarCount(curUser.getId(),id);
+			carService.addCarCount(curUser.getId(),pro.getId());
 		}
 		return null;
 	}
@@ -86,8 +87,6 @@ public class CarController {
 		}else{
 			carService.addCarCount(curUser.getId(),id);
 		}
-		return "car";
+		return "redirect:/car";
 	}
-	public void aaa(){}
-
 }

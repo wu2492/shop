@@ -1,24 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		
+	<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
 <!--瀑布流效果-->
 
-<script type="text/javascript" src="js/js/notification.js"></script>
-<script type="text/javascript" src="js/js/bigimg.js"></script>
-<script type="text/javascript" src="js/js/jquery.lazyload.min.js" ></script>
-<script type="text/javascript" src="js/js/blocksit.min.js"></script>
-<script type="text/javascript" src="js/js/pubu.js"></script>
-<link rel="stylesheet" href="css/css/bigimg.css" type="text/css"/>
-<link rel="stylesheet" href="css/css/pubu.css" type="text/css" media='screen'/>
+<script type="text/javascript" src="${contextPath}/assets/js/js/notification.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/bigimg.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/jquery.lazyload.min.js" ></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/blocksit.min.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js/pubu.js"></script>
+<link rel="stylesheet" href="${contextPath}/assets/css/css/bigimg.css" type="text/css"/>
+<link rel="stylesheet" href="${contextPath}/assets/css/css/pubu.css" type="text/css" media='screen'/>
 </head>
 <body>
  <jsp:include page="top.jsp" />
@@ -26,17 +30,17 @@
   <div class="banLeft">
    <div class="focus">
     <ul class="rslides f426x240">
-        <li><a href="#"><img src="images/banner.jpg" width="750" height="300"  /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
-        <li><a href="#"><img src="images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" width="750" height="300"  /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
+        <li><a href="#"><img src="${contextPath}/assets/images/banner.jpg" /></a></li>
     </ul>
    </div><!--focus/-->
   </div><!--banLeft/-->
   <div class="banRight">
-   <img src="images/xinpin.jpg" width="195" height="57" />
-   <div class="newPhone"><img src="images/newphone.jpg" width="87" height="163" /></div>
+   <img src="${contextPath}/assets/images/xinpin.jpg" width="195" height="57" />
+   <div class="newPhone"><img src="${contextPath}/assets/images/newphone.jpg" width="87" height="163" /></div>
    <div class="phonePar">
     <span>华为荣耀6 H60-L01 移动4G</span><br />
     <strong class="cheng">￥2099</strong> <span class="hui">￥3099</span>
@@ -58,67 +62,67 @@
 	<div id="container" style="width:990px;">
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="1" src="images/pixel.gif" data-original="images/1.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="1" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/1.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="2" src="images/pixel.gif" data-original="images/2.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="2" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/2.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="3" src="images/pixel.gif" data-original="images/3.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="3" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/3.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="4" src="images/pixel.gif" data-original="images/4.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="4" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/4.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="5" src="images/pixel.gif" data-original="images/5.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="5" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/5.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="6" src="images/pixel.gif" data-original="images/6.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="6" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/6.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="7" src="images/pixel.gif" data-original="images/7.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="7" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/7.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="8" src="images/pixel.gif" data-original="images/8.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="8" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/8.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="9" src="images/pixel.gif" data-original="images/9.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="9" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/9.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="10" src="images/pixel.gif" data-original="images/10.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="10" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/10.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="11" src="images/pixel.gif" data-original="images/11.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="11" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/11.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="12" src="images/pixel.gif" data-original="images/12.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="12" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/12.jpg" width="225" /></a>
 			</div>
 		</div>
 		<div class="grid">
 			<div class="imgholder">
-				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="13" src="images/pixel.gif" data-original="images/13.jpg" width="225" /></a>
+				<a href="buyinfo.jsp"><img class="lazy thumb_photo" title="13" src="${contextPath}/assets/images/pixel.gif" data-original="${contextPath}/assets/images/13.jpg" width="225" /></a>
 			</div>
 		</div>
 	</div>
@@ -135,7 +139,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />
